@@ -5,6 +5,11 @@ background-image: Url(' https://firebasestorage.googleapis.com/v0/b/angular-c482
 background-size: cover;
 position: relative;
 }
+
+
+
+
+
 nav{
 display: flex;
 justify-content: space-between !important;
