@@ -18,6 +18,12 @@ z-index: 50;
 background: none;
 position: fixed;
 width: 100%;
+ transition:.3s;
+
+
+
+
+
 }
 .right{
   display: flex;
@@ -44,24 +50,25 @@ padding: 0 12px;
 position: relative;
 }
 .nav-links ul li a{
-color: blanchedalmond;
+color: rgb(255, 205, 228);
 text-decoration: none;
-font-size: 15px;
+font-size: 18px;
 }
 .btn{
   border-radius: 50px;
   font-size: 15px;
 }
 .btn-1{
-  font-weight:700;
+  font-weight:400;
   font-size: 18px;
 }
 
 
 
-.nav-links ul li:hover{
-background-color: blueviolet;
+.nav-links ul li a:hover{
+color: rgb(78, 38, 38);
 transition: .4s;
+
 
 }
 .text-box{
@@ -74,7 +81,7 @@ transform: translate(-50%,-50%);
 
 }
 .text-box h1{
-  font-size: 60px;
+  font-size: 50px;
   color: rgb(124, 27, 72);
   font-weight: 600px;
   margin: 10px;
@@ -128,8 +135,9 @@ border: solid 2px purple;
 display: block;
   }
   .text-box a{padding:0 4px ;
-    left: 24px;}
-
+    left: 24px;
+    font-size: 10px;
+  }
   .nav-links {
 position: absolute;
 background: #43616d;
