@@ -1,0 +1,38 @@
+<form [formGroup]="formGroup" >
+ <label for="file" class="logo"><img [src]="imgSrc"  alt=""
+  *ngIf="formGroup.controls['logo'].value" ></label>
+
+<input
+   type="file"
+   id="file"
+   (change)="onFileInputChange($event)"
+   multiple
+   accept="image/*" >
+
+
+  <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="name" formControlName="name" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Color</mat-label>
+      <input matInput placeholder="color" formControlName="color" >
+      </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sectors</mat-label>
+      <input matInput  placeholder="sectors" formControlName="sectors" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Category Name</mat-label>
+      <input matInput  placeholder="categoryName" formControlName="categoryName" >
+    </mat-form-field>
+
+   <div class="actions-section">
+      <button mat-raised-button color="primary" (click)="onAddSectorCliked()" >
+         Add Sectors</button>
+   </div>
+
+</form>

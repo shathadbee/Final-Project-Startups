@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+}
+
+.row{
+  display: flex;
+
+
+}
+
+.col{
+  flex: 1;
+
+}
+.btn{
+
+margin-inline-start: 12px;}
+
+.align{
+  text-align:end;
+}
+td, th {
+  width: 25%;
+}
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}

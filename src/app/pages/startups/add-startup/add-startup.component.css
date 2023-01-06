@@ -1,0 +1,42 @@
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+#file{
+ display: none;
+
+}
+.logo{
+  height: 100px;
+  width: 100px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ justify-content: center;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+
+  border-radius: 50%;
+  background-image: Url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png');
+  font-weight: 400;
+  padding: .7rem;
+}
+button{
+  width: 100px;
+}
+mat-form-field{
+  width: 100%;
+}
+.logo img{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}

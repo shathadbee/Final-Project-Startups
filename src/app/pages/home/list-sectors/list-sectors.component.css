@@ -1,0 +1,22 @@
+h2{
+  display: flex;
+  justify-content: center;
+  padding: 40px  0 0 0;
+  font-size: 1.5rem;
+  color: rgb(54, 49, 82);
+}
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+gap: 20px;
+flex-wrap: wrap;
+padding: 20px;
+}
+
+.card{
+  width: 300px;
+  height: 74px;
+  border-radius: 24px;
+}

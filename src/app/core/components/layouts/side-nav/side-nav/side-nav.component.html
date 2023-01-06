@@ -1,0 +1,61 @@
+
+
+
+<mat-sidenav-container>
+  <mat-sidenav #snav>
+    <div  style="display: flex; justify-content: center;  "  *ngIf="loading"        >
+      <mat-spinner  diameter="20"  color="primary">  </mat-spinner>
+      </div>
+    <mat-list  *ngIf="!loading"   >
+      <div *ngFor="let item of navMune.children">
+        <div *ngIf="item.children.length>0 else hasNoChildren">
+          <mat-list-item >
+            <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+            <div matListItemTitle class="item-text">{{ item.displayName }}</div>
+          </mat-list-item>
+
+            <div *ngFor="let childItem of item.children">
+              <a [routerLink]="[childItem.route]" *ngIf="childItem.role ===userData.role || childItem.role.length===0">
+                <mat-list-item class="child-items">
+                  <mat-icon matListItemIcon>{{ childItem.icon }}</mat-icon>
+                  <div matListItemTitle class="item-text">{{ childItem.displayName }}</div>
+                </mat-list-item>
+              </a>
+            </div>
+
+        </div>
+
+
+        <ng-template #hasNoChildren>
+          <a [routerLink]="[item.route]"*ngIf="item.role ===userData.role || item.role.length===0">
+            <mat-list-item>
+              <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+              <div matListItemTitle class="item-text">{{ item.displayName }}</div>
+            </mat-list-item>
+          </a>
+        </ng-template>
+      </div>
+    </mat-list>
+    <button  class="btn" mat-button (click)="onLoggedoutClicked()"><mat-icon>logout</mat-icon> Logout</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar>
+
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon style="color: #fab73f;">menu</mat-icon>
+      </button>
+      <span class="logo"></span>
+      <span class="example-icon"></span>
+
+    </mat-toolbar>
+
+    <main>
+      <div class="mat-elevation-z8 content">
+        <router-outlet></router-outlet>
+      </div>
+
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

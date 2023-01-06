@@ -1,0 +1,32 @@
+
+    <section>
+      <div class="container">
+<div class="signin-signup" >
+<form  [formGroup]="formGroup" class="sign-in-form">
+<h2 class="title">Sign in</h2>
+
+
+<div class="input-field">
+  <i class="fas fa-envelope" ></i>
+  <input type="email" placeholder="Email"  formControlName="email"  [ngClass]="(email.touched && email.invalid )?'error-input':''">
+</div>
+<div class="must"  *ngIf="email.touched &&email.invalid">{{getEmailErrorMessage()}}</div>
+
+
+
+
+<div class="input-field" [ngClass]="(password.touched && password.invalid )?'error-input':''">
+  <i class="fas fa-lock "></i>
+  <input type="password" placeholder="Password"  formControlName="password" >
+</div>
+<div class="must" *ngIf="password.touched && password.invalid">{{getPasswordErrorMessage()}}</div>
+
+
+<input type="submit" value="login" class="btn" (click)="onloginClicked()" >
+
+<p> Create New Account :<a [routerLink]="['/auth/signup']">create account</a></p>
+</form>
+</div> </div>
+  </section>
+
+

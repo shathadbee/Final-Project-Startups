@@ -1,0 +1,148 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+section{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+justify-content: center;
+min-height: 100vh;
+background-color: rgb(252, 245, 252);
+}
+.container{
+  position: relative;
+  height: 60vh;
+  width: 35vw;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px 0 rosybrown,0 3px 16px 0 rgb(12, 12, 12);
+  min-width:300px;
+max-width:900px;
+min-height:500px;
+}
+
+
+.signin-signup{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width:80%;
+  min-width: 300px;
+  padding:2rem;
+}
+.title{
+  font-weight: 500;
+  color: crimson;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+}
+.input-field{
+width: 100%;
+height: 50px;
+background-color: #f0f0f0;
+margin: 10px 0;
+border: 2px solid crimson;
+border-radius: 50px;
+display: flex;
+align-items: center;
+
+}
+.input-field i{
+flex: 1;
+text-align: center;
+color: #666;
+font-size: 14px;
+
+}
+.input-field input{
+  flex:5;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+.btn{
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  background-color: crimson;
+  color: #fff;
+  font-weight: 600;
+  margin: 10px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: deeppink;
+}
+.social-text{
+  margin: 10px 0;
+  font-size: 14px;
+
+}
+.social-media{
+  display: flex;
+align-items: center;
+
+}
+.social-icon{
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  border: 1px solid #444;
+  border-radius: 30px;
+  margin: 0 5px;
+}
+
+a{
+  text-decoration: none;
+}
+.social-icon:hover{
+  color:  deeppink;
+  border-color:deeppink;
+}
+
+p{
+  margin: 10px 0px;
+  font-size: 12px;
+}
+
+
+
+
+
+.error-input{
+  color:red;
+  border: 1px solid red;
+}
+
+
+
+
+
+
+
+
+

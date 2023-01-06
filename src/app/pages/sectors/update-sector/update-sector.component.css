@@ -1,0 +1,39 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  #file{
+   display: none;
+
+  }
+  .logo{
+    height: 100px;
+    width: 100px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: Url();
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  button{
+    width: 150px;
+
+  }
+  mat-form-field{
+    width: 100%;
+  }
+  .logo img{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  }

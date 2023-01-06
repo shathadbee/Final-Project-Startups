@@ -1,0 +1,16 @@
+<section>
+  <h2>Explore Main Sectors</h2>
+  <div class="container">
+    <div class="card" *ngFor="let item of dataArray">
+      <div class="content">
+        <div class="imgBx">
+          <img [src]="item.logo" />
+        </div>
+        <div class="contentBx">
+          <h3>{{ item.name }}</h3>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+<div  style="display: flex; justify-content: center;  "  *ngIf="loading"        >
+<mat-spinner  diameter="20"  color="primary">  </mat-spinner>
+</div>
+
+<div  *ngIf="!loading">
+<img [src]="startup.logo" alt="">
+
+</div>
+<div>{{startup.name}}</div>
