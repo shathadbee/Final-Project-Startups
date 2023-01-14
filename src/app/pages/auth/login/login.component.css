@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
+
 }
 
 section{
@@ -138,7 +139,12 @@ p{
   border: 1px solid red;
 }
 
+.eye{
+  position: relative;
+  right: 15px;
 
+  cursor: pointer;
+}
 
 
 
