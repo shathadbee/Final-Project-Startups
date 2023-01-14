@@ -9,6 +9,7 @@ import {
 import { StartupsService } from 'src/app/core/services/startups/startups.service';
 import { UploadService } from 'src/app/core/services/upload/upload.service';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
+import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-request-startup',
   templateUrl: './request-startup.component.html',
@@ -18,7 +19,8 @@ export class RequestStartupComponent implements OnInit {
   formGroup: FormGroup;
   imgSrc: any;
   listSectors:any[]=[];
-
+  subject = new Subject();
+  loader=true;
   constructor(
     private formBuilder: FormBuilder,
     private _startupsService: StartupsService,
@@ -51,6 +53,9 @@ export class RequestStartupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loader=false;
+    }, 1000);
     this.getAllSectors()}
 
   onAddClicked() {
@@ -59,8 +64,10 @@ export class RequestStartupComponent implements OnInit {
     } else {
       if (this.formGroup.controls['logo'].value) {
         this.upload();
+      }else{
+        this.createStartup();
       }
-      this.createStartup();
+
     }
   }
   upload() {
@@ -73,7 +80,7 @@ export class RequestStartupComponent implements OnInit {
       });
   }
   getDownloadURL() {
-    this._uploadService.getDownloadURL().subscribe((url) => {
+    this._uploadService.getDownloadURL().pipe(takeUntil(this.subject)).subscribe((url) => {
       console.log();
       this.formGroup.controls['logo'].setValue(url);
       this.createStartup();
@@ -115,13 +122,17 @@ export class RequestStartupComponent implements OnInit {
 
 
   getAllSectors(){
-    this._sectorsService.getAll().subscribe((result)=>{
+    this._sectorsService.getAll().pipe(takeUntil(this.subject)).subscribe((result)=>{
       if(result){
         this.listSectors= result;
       }
     });
   }
 
+  ngOnDestroy(): void {
+    this.subject.next(true);
+    this.subject.complete();
+  }
 
 
 

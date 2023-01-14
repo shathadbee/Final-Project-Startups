@@ -17,7 +17,11 @@
 
 <div class="input-field" [ngClass]="(password.touched && password.invalid )?'error-input':''">
   <i class="fas fa-lock "></i>
-  <input type="password" placeholder="Password"  formControlName="password" >
+
+  <input [type]=" changetype?'password':'text'" placeholder="Password"  formControlName="password" >
+  <span class="eye" (click)="viewpass()">
+    <i [ngClass]= "visible?'bi bi-eye':'bi bi-eye-slash' " ></i>
+    </span>
 </div>
 <div class="must" *ngIf="password.touched && password.invalid">{{getPasswordErrorMessage()}}</div>
 

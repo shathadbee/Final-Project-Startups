@@ -2,29 +2,32 @@ form{
   display: flex;
   flex-direction: column;
   gap: 12px;
-  justify-content: center;
-  align-items: center;
-padding: 5rem;
+  justify-content: center  ;
+  align-items: center ;
+padding: 6rem;
 }
 #file{
  display: none;
 
 }
 .logo{
-  padding: 1rem;
+
   height: 100px;
   width: 100px;
   margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: Url('https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/55.jpg?alt=media&token=832e7624-418a-4fd2-b553-6caadd759eb5');  border-radius: 50%;
+  background-image: Url('https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/lo.png?alt=media&token=ea79bcab-5d5c-414c-930d-3d7230b6741d');
+  border-radius: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border: 1px solid rgb(184, 178, 178);
 }
 button{
-  width: 130px;
+  width: 160px;
+  font-size: 1rem;
 }
 mat-form-field{
   width: 100%;
@@ -36,4 +39,85 @@ mat-form-field{
   border-radius: 50%;
   height: 100px;
   width: 100px;
+}
+.color{
+  width: 3rem;
+}
+
+@media (max-width:600px) {
+  form{ padding: 1rem;}
+}
+
+
+
+
+
+
+
+
+
+.loader {
+  color:  rgb(124, 27, 72);
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  top:50%;
+left: 50%;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em,
+    2em -2em 0 0em, 3em 0 0 -1em,
+    2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+    3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em,
+    2em -2em 0 0, 3em 0 0 0.2em,
+    2em 2em 0 0, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+     -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+     -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+     -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
 }

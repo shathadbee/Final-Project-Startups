@@ -1,8 +1,220 @@
-.example-card {
-  max-width: 400px;
+/*
+table {
+  width: 100%;
+
 }
 
-.example-header-image {
+.row{
+  display: flex;
 
-  background-size: cover;
+
 }
+
+.col{
+  flex: 1;
+
+}
+.btn{
+
+margin-inline-start: 10px;}
+
+.align{
+  text-align:end;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+
+}
+.hover{
+  cursor: pointer;
+}
+
+mat-form-field{
+  width: 80%;
+}
+
+
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+
+
+  .mat-mdc-form-field {
+    font-size: 8px;
+padding: 0;
+  }
+
+
+}
+
+
+
+.mat-table {
+  overflow-x: scroll;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+.startups_table{
+  overflow-x: scroll !important;
+
+}
+
+td, th {
+
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+*/
+
+
+
+.startups_table{
+  overflow-x: scroll !important;
+
+}
+
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+th{
+  background-color: rgb(241, 242, 243) !important;
+}
+
+@media screen and (max-width: 460px) {
+  table {
+    display: block;
+    max-width : 40%;
+  }
+}
+.main{
+  min-width: 100% !important;
+}
+
+/*@media (max:600px) {
+  .mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0 8px 0 8px;
+ }}
+ table {
+  width: 100%;
+  justify-content: center;
+
+}
+.startups_table{
+  overflow-x: scroll !important;
+
+}
+.mat-mdc-form-field {
+  font-size: 14px;
+  max-width: 100%;
+}
+
+
+
+td, th {
+  width: 10%;
+  text-align: center !important;
+  vertical-align: middle !important;
+}*/
+.loader {
+  color:  rgb(124, 27, 72);
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  top:50%;
+left: 50%;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em,
+    2em -2em 0 0em, 3em 0 0 -1em,
+    2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+    3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em,
+    2em -2em 0 0, 3em 0 0 0.2em,
+    2em 2em 0 0, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+     -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+     -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+     -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+
+
+
+

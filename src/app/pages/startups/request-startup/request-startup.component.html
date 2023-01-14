@@ -1,59 +1,73 @@
 
-<form  [formGroup]="formGroup">
+<div    class="loader"
+role="status" *ngIf= "loader"  >
+  </div>
+<div *ngIf="!loader">
+<div class="row">
+  <P>  WELCOME!  </P>
+<h4> Add  Your  Startup  </h4>
+  <form  [formGroup]="formGroup">
+
+
+    <label for="file" class="logo"> <img [src]="imgSrc"  alt=""
+      *ngIf="formGroup.controls['logo'].value" >   </label>
+    <input
+       type="file"
+       id="file"
+       (change)="onfileInputChang($event)"
+       multiple
+       accept="image/*" >
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name">
+      <mat-error *ngIf=" formGroup.get('name')?.invalid">{{getErrorMessage(formGroup.get('name'))}}</mat-error>
+    </mat-form-field>
+
+
+
   <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Name" formControlName="name">
-    <mat-error *ngIf=" formGroup.get('name')?.invalid">{{getErrorMessage(formGroup.get('name'))}}</mat-error>
+    <mat-label>City</mat-label>
+    <input matInput placeholder="City"  formControlName="city">
   </mat-form-field>
 
-<label  for="file" class="logo">Logo
-  </label>
-  <input  id="file" type="file" accept="image/*"      value="image"  (change)="onfileInputChang($event)" >
-<img [src]="imgSrc" alt=""    *ngIf="formGroup.controls['logo'].value"       >
+
+  <mat-form-field appearance="fill" >
+    <mat-label>Sectors</mat-label>
+    <mat-select formControlName="sectors" multiple>
+      <mat-option *ngFor="let item of listSectors" [value]="item" >{{item.name}} </mat-option>
+    </mat-select>
+    <mat-error *ngIf=" formGroup.get('sectors')?.invalid">{{getErrorMessage(formGroup.get('sectors'))}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Number Of Employees</mat-label>
+    <input matInput placeholder="NumberOfEmployees" type="number" formControlName="numberOfEmployees">
+
+  </mat-form-field>
 
 
-<mat-form-field appearance="fill">
-  <mat-label>City</mat-label>
-  <input matInput placeholder="City"  formControlName="city">
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Year Of Establish</mat-label>
+    <input matInput placeholder="YearOfEstablish" formControlName="yearOfEstablish">
+  </mat-form-field>
 
 
-<mat-form-field appearance="fill" >
-  <mat-label>Sectors</mat-label>
-  <mat-select formControlName="sectors" multiple>
-    <mat-option *ngFor="let item of listSectors" [value]="item" >{{item.name}} </mat-option>
-  </mat-select>
-  <mat-error *ngIf=" formGroup.get('sectors')?.invalid">{{getErrorMessage(formGroup.get('sectors'))}}</mat-error>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-  <mat-label>Number Of Employees</mat-label>
-  <input matInput placeholder="NumberOfEmployees" type="number" formControlName="numberOfEmployees">
-
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Website Url</mat-label>
+    <input matInput placeholder="WebsiteUrl"  formControlName="websiteUrl">
+    <mat-error  *ngIf=" formGroup.get('websiteUrl')?.invalid">{{getErrorMessage(formGroup.get('websiteUrl'))}} </mat-error>
+  </mat-form-field>
 
 
-<mat-form-field appearance="fill">
-  <mat-label>Year Of Establish</mat-label>
-  <input matInput placeholder="YearOfEstablish" formControlName="yearOfEstablish">
-</mat-form-field>
-
-
-<mat-form-field appearance="fill">
-  <mat-label>Website Url</mat-label>
-  <input matInput placeholder="WebsiteUrl"  formControlName="websiteUrl">
-  <mat-error  *ngIf=" formGroup.get('websiteUrl')?.invalid">{{getErrorMessage(formGroup.get('websiteUrl'))}} </mat-error>
-</mat-form-field>
-
-
-<mat-form-field appearance="fill">
-  <mat-label>Email Address</mat-label>
-  <input matInput placeholder="EmailAddress"  formControlName="emailAddress">
-  <mat-error  *ngIf=" formGroup.get('emailAddress')?.invalid">{{getErrorMessage(formGroup.get('emailAddress'))}} </mat-error>
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email Address</mat-label>
+    <input matInput placeholder="EmailAddress"  formControlName="emailAddress">
+    <mat-error  *ngIf=" formGroup.get('emailAddress')?.invalid">{{getErrorMessage(formGroup.get('emailAddress'))}} </mat-error>
+  </mat-form-field>
 <button mat-flat-button  color="primary"    (click)="onAddClicked()">Add Startup</button>
 </form>
+</div>
 
-
-
+</div>
 

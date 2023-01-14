@@ -1,16 +1,22 @@
-
+<div    class="loader"
+role="status" *ngIf= "loader"  >
+  </div>
+<div *ngIf="!loader">
 <form  [formGroup]="formGroup">
-  <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Name" formControlName="name">
-    <mat-error *ngIf=" formGroup.get('name')?.invalid">{{getErrorMessage(formGroup.get('name'))}}</mat-error>
-  </mat-form-field>
+<label  for="file" class="logo">
+  <img [src]="imgSrc" alt=""    *ngIf="formGroup.controls['logo'].value"  >
+ </label>
 
-<label  for="file" class="logo">Logo
-  </label>
-  <input  id="file" type="file" accept="image/*"      value="image"  (change)="onfileInputChang($event)"  >
-<img [src]="imgSrc" alt=""    *ngIf="formGroup.controls['logo'].value"     >
+  <input  id="file" type="file"
+   accept="image/*"
+   value="image"
+    (change)="onfileInputChang($event)" >
 
+<mat-form-field  appearance="fill">
+  <mat-label>Name</mat-label>
+  <input matInput placeholder="Name" formControlName="name">
+  <mat-error *ngIf=" formGroup.get('name')?.invalid">{{getErrorMessage(formGroup.get('name'))}}</mat-error>
+</mat-form-field>
 
 <mat-form-field appearance="fill">
   <mat-label>City</mat-label>
@@ -18,14 +24,16 @@
 </mat-form-field>
 
 
+
 <mat-form-field appearance="fill" >
   <mat-label>Sectors</mat-label>
-  <mat-select formControlName="sectors">
-    <mat-option value="two">Second option</mat-option> <mat-option value="one">First option</mat-option>
-
+  <mat-select formControlName="sectors" multiple>
+    <mat-option *ngFor="let item of listSectors" [value]="item" >{{item.name}} </mat-option>
   </mat-select>
   <mat-error *ngIf=" formGroup.get('sectors')?.invalid">{{getErrorMessage(formGroup.get('sectors'))}}</mat-error>
 </mat-form-field>
+
+
 
 <mat-form-field appearance="fill">
   <mat-label>Number Of Employees</mat-label>
@@ -52,9 +60,9 @@
   <input matInput placeholder="EmailAddress"  formControlName="emailAddress">
   <mat-error  *ngIf=" formGroup.get('emailAddress')?.invalid">{{getErrorMessage(formGroup.get('emailAddress'))}} </mat-error>
 </mat-form-field>
-<button mat-flat-button  color="primary"    (click)="onUpdateClicked()">Update Startup</button>
+<button mat-flat-button style="background-color: black;color: #fff;"  (click)="onUpdateClicked()">Update Startup</button>
 </form>
 
-
+</div>
 
 

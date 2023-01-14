@@ -10,4 +10,5 @@ export interface Startup {
   yearOfEstablish?: string;
   websiteUrl: string;
   emailAddress: string;
+
 }

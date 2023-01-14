@@ -95,3 +95,9 @@ font-size: 14px;
 .btn:hover{
   background-color: deeppink;
 }
+.eye{
+  position: relative;
+  right: 15px;
+
+  cursor: pointer;
+}

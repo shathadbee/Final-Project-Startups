@@ -9,15 +9,17 @@
             <img [src]="item.logo" />
           </div>
           <div class="contentBx">
-            <h3>{{ item.name }}</h3>
-            <div></div>
+            <h4>{{ item.name }}</h4>
+
+        <button    (click)="onClicked(item)" >More Read!</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <mat-paginator     [hidePageSize]="hidePageSize" [pageSizeOptions]="[4, 8, 12]" >
+  <mat-paginator     [hidePageSize]="hidePageSize" [pageSizeOptions]="[5, 10, 15,20,25]" >
   </mat-paginator>
 
   </div>
+<!--[routerLink]="['/home/details-startup']"-->

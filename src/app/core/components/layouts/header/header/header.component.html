@@ -1,51 +1,81 @@
-<section class="header">
-<nav class=""  >
-  <div class="left">
-    <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/image%20(1).png?alt=media&token=19acc0f7-7c54-4131-9530-e361be4b956b" alt="">
-  </div>
-  <div class="right">
+<section class="header " >
+  <nav class="" [ngClass]="fixedNavBar? 'header_fixed':'nav'" >
+    <div class="left">
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/image%20(1).png?alt=media&token=19acc0f7-7c54-4131-9530-e361be4b956b" alt="">
+    </div>
+    <div class="right">
 
-    <div class="nav-links" [class.menuClass] ="menuVariable"  [class.menu_icon_Class] ="menu_icon_variable" >
+      <div class="nav-links" [class.menuClass] ="menuVariable"  [class.menu_icon_Class] ="menu_icon_variable"  >
 
-      <button  id= "icon"   type="button" class="btn-close btn-close-white"
+        <button  id= "icon"    class="btn-close btn-close" style="color:rgb(7, 4, 24) ; border:none!important;    margin-bottom: 0;    margin-top: 30px; font-size: 18px;"
 
-       (click)="open_closeMenu()" ></button>
+         (click)="open_closeMenu()" ></button>
 
-      <ul class="">
-        <li><a href=""> HOME</a></li>
-        <li><a href=""> SECTORS</a></li>
-        <li><a href=""> STARTUPS</a></li>
+        <ul class="">
+          <li><a href="#home"> HOME</a></li>
+          <li><a href="#sectors"> SECTORS</a></li>
+          <li><a href="#startups"> STARTUPS</a></li>
 
           <li class="auth-btns-above700"><a [routerLink]="['/auth/signup']" >SIGN UP</a></li>
           <li  class="auth-btns-above700"><a [routerLink]="['/auth/login']" >LOG IN</a></li>
 
 
 
-        <li class="auth-btns"> <button    class="btn-1" mat-button  [routerLink]="['/auth/signup']" type="submit">SIGN UP</button></li>
-        <li class="auth-btns"> <button class="btn" mat-raised-button  [routerLink]="['/auth/login']" type="submit">LOG IN</button></li>
-      </ul>
+          <li class="auth-btns"> <a    class="btn-1"  [routerLink]="['/auth/signup']" type="submit">SIGN UP</a></li>
+          <li class="auth-btns"> <button class="btn" mat-raised-button  [routerLink]="['/auth/login']" type="submit">LOG IN</button></li>
+        </ul>
 
+      </div>
+
+  <i  id= "icon"   class="bi bi-list"   style="    color: rgb(124, 27, 72);"  (click)="open_closeMenu()"></i>
     </div>
 
-<i  id= "icon"   class="bi bi-list"     (click)="open_closeMenu()"></i>
+
+  </nav>
+
+  <div class="text-box">
+  <h1> Welcome To Startups Jo</h1>
+
+  <p>Discover the startups that will shape our future.<br>
+     Contact them. Invest in them. Use their services.<br>
+      Read their news Or give them your support <br>
+      Or add your startup.<br></p>
+  <a  [routerLink]="['/auth/signup']" > Get Started </a>
   </div>
 
 
-</nav>
-<div class="text-box">
-<h1>Startups Jo</h1>
+  </section>
+  <section id="">
 
-<p>Discover the startups that will shape our future.<br>
-   Contact them. Invest in them. Use their services.<br>
-    Read their news Or give them your support <br>
-    Or add your startup.<br></p>
-<a  [routerLink]="['/auth/signup']" > Get Started </a>
-</div>
+    <div class="container">
 
-
-</section>
+      <div class="card" >
+        <i style="background-color: rgb(243, 247, 57);"  class="bi bi-fingerprint"></i>
+        <div class="card-container ">
+          <h3>Security</h3>
+          <div>Gateway to the Jordanian Entrepreneurship Ecosystem is Jordans.</div>
 
 
+        </div>
+      </div>
+      <div class="card" >
+        <i  style="background-color: rgb(197, 54, 54);" class="bi bi-currency-dollar"></i>
+        <div class="card-container ">
+          <h3> Free</h3>
+          <div>Rrgistring Here is Free. </div>
+        </div>
+      </div>
+      <div class="card" >
+        <i style="background-color: rgb(55, 55, 201);" class="bi bi-share" ></i>
+        <div  class="card-container ">
+
+          <h3>Share</h3>
+<div class="text-service">Sharing & Communication With Companies.</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
 
 
@@ -56,7 +86,8 @@
 
 
 
-<!--<button  mat-button color="primary" [routerLink]="['/auth/signup']" type="submit">SIGN UP</button>
+
+  <!--<button  mat-button color="primary" [routerLink]="['/auth/signup']" type="submit">SIGN UP</button>
 
 
-                 <button class="btn" mat-raised-button color="primary" [routerLink]="['/auth/login']" type="submit">LOG IN</button>-->
+                   <button class="btn" mat-raised-button color="primary" [routerLink]="['/auth/login']" type="submit">LOG IN</button>-->

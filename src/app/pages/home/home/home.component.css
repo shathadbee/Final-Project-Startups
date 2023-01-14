@@ -5,6 +5,7 @@ h2{
   padding: 40px  0 0 0;
   font-size: 2rem;
   color: rgb(54, 49, 82);
+  text-shadow: 2px 2px 4px #f7caeb;
 }
 
 .container{
@@ -12,25 +13,30 @@ h2{
   align-items: center;
 display: flex;
 flex-direction: row;
-padding: 20px;
+padding: 10px;
 flex-wrap: wrap;
 
 }
 
 
 .card{
+  box-shadow: rgba(116, 114, 114, 0.15) 0px 5px 15px 0px;
   width: 300px;
-  height: 320px;
+  height: 120px;
 cursor: pointer;
-border:solid 1px rgb(15, 15, 54);
+border:hidden;
 margin: 20px;
 border-radius: .2rem;
+background-color: rgb(255, 255, 255);
+
+
+border-radius: 10px;
 
 }
 .card:hover{
-  border:1px solid brown;
+
   transform: translateY(-0.5%);
-box-shadow: .5rem  .5rem 1rem rgb(166, 166, 202);
+box-shadow: 0rem  .5rem 1rem 0 rgb(166, 166, 202);
 
 }
 img{

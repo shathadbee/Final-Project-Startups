@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SectorDetailsComponent } from './sector-details/sector-details.component';
+
 import { UpdateSectorComponent } from './update-sector/update-sector.component';
 
 const MatImports=[MatTableModule ,MatButtonModule,MatInputModule ,MatListModule,MatIconModule ,MatMenuModule,MatPaginatorModule,MatFormFieldModule
@@ -24,7 +24,7 @@ const MatImports=[MatTableModule ,MatButtonModule,MatInputModule ,MatListModule,
 
 
 @NgModule({
-  declarations: [SectorsComponent, AddSectorComponent, SectorDetailsComponent, UpdateSectorComponent],
+  declarations: [SectorsComponent, AddSectorComponent, UpdateSectorComponent],
   imports: [CommonModule, SectorsRoutingModule, ...MatImports],
 })
 export class SectorsModule {}

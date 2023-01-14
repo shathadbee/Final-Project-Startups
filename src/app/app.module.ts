@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,35 +11,39 @@ import { HeaderModule } from './core/components/layouts/header/header.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SideNavModule } from './core/components/layouts/side-nav/side-nav.module';
-import { interval, take } from 'rxjs';
-import { InitializerModule } from './initializer/initializer.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { take } from 'rxjs';
+import { AuthService } from './core/services/auth/auth.service';
+import {
+  AppInitalizService,
+  appInitializer,
+} from './core/services/app-init/app-initaliz.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-RouterModule,
-HeaderModule,
-AngularFireModule.initializeApp(environment.firebase),
+    RouterModule,
+    HeaderModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     SideNavModule,
-    InitializerModule,
-    FontAwesomeModule
 
-
+    FontAwesomeModule,
   ],
   providers: [
-
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      useFactory: appInitializer,
+      deps: [AppInitalizService],
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

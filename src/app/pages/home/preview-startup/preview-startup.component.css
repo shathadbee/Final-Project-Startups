@@ -16,7 +16,6 @@ margin: 0;
 	align-items: center;
 	flex-wrap: wrap;
 background-color: #ffffff;
-
   flex-direction: column;
 }
 
@@ -68,6 +67,7 @@ section::after {
 	justify-content: center;
 	align-items: center;
 	backdrop-filter: blur(10px);
+
 }
 
 .container .card .content {
@@ -91,27 +91,53 @@ section::after {
 }
 
 .container .card .content .imgBx img {
+
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
+
 }
 
-.container .card .content .contentBx h3 {
+.container .card .content .contentBx h4 {
 	color: rgb(0, 0, 0);
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 500;
-	font-size: 18px;
+	font-size: 10px;
 	text-align: center;
-	margin: 20px 0 10px;
+	margin: 10px 0 10px;
 	line-height: 1.1em;
+
 }
+
 
 mat-paginator{
 padding: 0;
 
 margin: 0;
+}
+button{
+  position: absolute;
+  top: 116%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 12x;
+  padding: 4px 24px;
+  width: 140px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button:hover{
+background-color: rgb(124, 27, 72);
+  color: white;
 }

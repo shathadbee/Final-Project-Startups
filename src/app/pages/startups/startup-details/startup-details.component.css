@@ -1,5 +1,152 @@
-img{
+
+.cover{
+background-size: cover;
+width: 100%;
+height: 50%;
+background-position: center;
+background-repeat: no-repeat;
+position: relative;
+
+}
+.cover:hover {opacity: 0.8;}
+
+.logo{
+  width: 140px;
+  height: 140px;
+  margin: 40px;
+}
+
+.overlay{
+  position: relative;
+
+}
+.overlay::after{
+  position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,0,0,0.7) 71%, rgba(0,0,0,1) 100%);
+}
+
+
+.title {
+  font-size: 2.5rem;
+  font-weight:660 ;
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 60%;
+  left: 7%;
+
+}
+
+
+
+
+
+.content{
+  border:1px solid rgba(218, 212, 212, 0.788) ;
+  padding: 80px;
+  height: 100%;
+
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+p{
+  font-size: 20px;
+  padding-top: 26px;
+  color: blueviolet;
+}
+span{
+color: rgb(150, 147, 147);
+  gap: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 1.2rem;
+    font-weight:620 ;
+    top: 50%;
+
+
+  }
+
+.logo{
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+margin: 20px;
 }
+.content{
+  padding: 20px;
+}
+}
+
+.loader {
+  color:  rgb(124, 27, 72);
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  top:50%;
+left: 50%;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em,
+    2em -2em 0 0em, 3em 0 0 -1em,
+    2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+    3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em,
+    2em -2em 0 0, 3em 0 0 0.2em,
+    2em 2em 0 0, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+     -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+     -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+     -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+
+
+

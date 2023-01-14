@@ -1,4 +1,4 @@
-.p-4{
+/*.p-4{
   background-color: rgb(88, 49, 124) !important;
 padding: 0.4rem 1rem !important;
 border: none !important;
@@ -7,3 +7,33 @@ border: none !important;
 
   padding:1rem 0!important;
 }
+*/
+
+
+footer{
+  background-color: rgb(124, 27, 72);
+  color: #fff;
+  font-size: 14px;
+}
+.row{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+
+padding: 20px;
+
+
+}
+.col{
+padding: 20px;
+text-align: center;
+
+}
+@media (max-width: 700px)  {
+  .row{width: 86%;
+margin: 0;
+margin-left: 12px;
+    padding-right: 0;
+}
+}
+

@@ -59,10 +59,6 @@ authStateSubscribe(){
   });
 }
 
-
-
-
-
 signup ( email:string, password:string  ) :Observable<any>  {
 return from(this.angularFireAuth.createUserWithEmailAndPassword( email ,password)
 .catch((error)=>{
@@ -95,9 +91,6 @@ this.userInfo.next(user);
 });*/
 
 }
-
-
-
 logout(){
   return this.angularFireAuth.signOut().then(()=>{
   localStorage.removeItem('userId')

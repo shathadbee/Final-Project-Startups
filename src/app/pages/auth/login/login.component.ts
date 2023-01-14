@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  implements OnInit{
-
+  visible = true;
+  changetype:boolean=true;
   formGroup!:FormGroup;
   constructor(private router:Router ,private formBuilder:FormBuilder,private _authService:AuthService){}
 
@@ -67,5 +68,9 @@ get password () {
 }
 
 
+viewpass(){
+  this.visible=!this.visible;
+  this.changetype=!this.changetype;
+    }
 
 }

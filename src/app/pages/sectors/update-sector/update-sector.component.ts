@@ -15,13 +15,7 @@ export class UpdateSectorComponent  implements OnInit{
   formGroup:FormGroup;
   imgSrc:any;
   key:string='';
-  formData:Sectors={
-    name:'',
-    logo:'',
-    color:'',
-    sectors:'',
-    categoryName:'',
-  }
+  loader=true;
   constructor(
     private  formBulider:FormBuilder,
     private _sectorsService:SectorsService,
@@ -58,6 +52,9 @@ export class UpdateSectorComponent  implements OnInit{
     })
     this.imgSrc = result['logo'];
   })
+  setTimeout(() => {
+    this.loader=false;
+  }, 1000);
   }
 
 
@@ -84,7 +81,7 @@ export class UpdateSectorComponent  implements OnInit{
     if(this.formGroup.invalid){
       this.validaterFormGroup();
     }else{
-      if(this.formGroup.controls['logo'].value){
+      if(this.formGroup.controls['logo'].value.name){
         this.upload();
       }else{
         this.updateSectors()

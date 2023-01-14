@@ -1,51 +1,54 @@
-<div class="loading">
-  <mat-spinner  diameter="20" color="primary" *ngIf="loading" ></mat-spinner>
-</div>
-<div *ngIf="!loading">
-
+<div    class="loader"
+role="status" *ngIf= "loader"  >
+  </div>
+<div *ngIf="!loader">
+  <div class="header">
+    <h1>Main Sectors</h1>
+  </div>
+  <div class="content">
 <div class="row">
     <div class="filter-col">
             <mat-form-field class="full-width" appearance="outline" >
               <mat-label>Search</mat-label>
-              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input >
+              <input matInput (keyup)="applyFilter($event)" placeholder="" #input >
               <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
     </div>
     <div class="action-col">
         <button mat-raised-button
-        color="primary"
+        style="background-color: rgb(124, 27, 72); color: #ffffff;"
         (click)="onAddClicked()" >
         Add Sectors</button>
     </div>
 </div>
 
-<table mat-table [dataSource]="dataSource" >
+<table mat-table [dataSource]="dataSource"  >
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name</th>
+    <ng-container matColumnDef="name" >
+      <th mat-header-cell *matHeaderCellDef > Name</th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
 
-    <ng-container matColumnDef="color">
-      <th mat-header-cell *matHeaderCellDef> Color </th>
-      <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+    <ng-container matColumnDef="color"  >
+      <th mat-header-cell *matHeaderCellDef  > Color </th>
+      <td mat-cell   *matCellDef="let element" > {{element.color}} </td>
     </ng-container>
 
 
-    <ng-container matColumnDef="categoryName">
+    <!--<ng-container matColumnDef="categoryName">
       <th mat-header-cell *matHeaderCellDef> Category Name </th>
       <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
-    </ng-container>
+    </ng-container>-->
 
 
     <ng-container matColumnDef="sectors">
-      <th mat-header-cell *matHeaderCellDef >Sectors</th>
-      <td mat-cell *matCellDef="let element">{{element.sectors}} </td>
+      <th mat-header-cell *matHeaderCellDef  >Sectors</th>
+      <td mat-cell *matCellDef="let element"  >{{element.sectors}} </td>
     </ng-container>
 
     <ng-container matColumnDef="actions"               >
-      <th mat-header-cell *matHeaderCellDef > </th>
+      <th mat-header-cell *matHeaderCellDef tyle="padding: 0 !important;" > </th>
       <td mat-cell *matCellDef="let row">
         <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
         <mat-icon>more_vert</mat-icon>
@@ -57,7 +60,7 @@
         </button>
 
         <button mat-menu-item  (click)="onDeletClicked(row)">
-          <mat-icon>delete</mat-icon>
+          <mat-icon style="color: red;">delete</mat-icon>
           <span>Delete</span>
         </button>
       </mat-menu>
@@ -79,4 +82,5 @@
   showFirstLastButtons
   aria-label="Select page of periodic elements">
 </mat-paginator>
+</div>
 </div>

@@ -1,78 +1,106 @@
 
-img{
+.cover{
   background-size: cover;
-  margin: 0;
-  padding: 0;
-  height: 80vh;
+  width: 100%;
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 
   }
+  .cover:hover {opacity: 0.8;}
 
-  .row{
-    display: flex;
-  justify-content: center;
-  gap: 20px;
-  }
-
-
-  form{
-    border: 1px solid rgb(165, 164, 164);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  padding: 20px;
-    align-items: center ;
-  width: 60%;
-position: relative;
-left: 20%;
-
-  }
-  #file{
-   display: none;
-
-  }
   .logo{
-    height: 100px;
-    width: 100px;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   justify-content: center;
-    border-radius: 50%;
-    font-size: 1rem;
-    font-weight: 400;
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 1px solid rgb(223, 177, 223);
-  }
-  .logo:hover{
-  box-shadow: .4rem 0 .8rem rgb(207, 182, 230);
-  motion: 1;
+    width: 140px;
+    height: 140px;
+    margin: 40px;
   }
 
-  button{
-    width: 160px;
+  .overlay{
+    position: relative;
+
   }
-  mat-form-field{
-    width: 100%;
-  }
-  .logo img{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
+  .overlay::after{
+    position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(58, 9, 54, 0) 0%, rgba(0,0,0,0.7) 71%, rgba(0,0,0,1) 100%);
   }
 
-  @media screen and (max-width:700px){
-    form{ width: 100%;
-      position: relative;
-      left: 0;
- }
+
+  .title {
+    font-size: 2.4rem;
+    font-weight:620;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 60%;
+    left: 7%;
+
   }
+h1 a{
+  font-size: 1rem;
+  font-weight:400;
+  color: rgb(150, 147, 147);
+  position: absolute;
+  z-index: 1;
+  top: 78%;
+  left: 6%;
+}
+
+
+
+
+  .content{
+    border:1px solid rgba(218, 212, 212, 0.788) ;
+    padding: 80px;
+    height: 100%;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+  p{
+    font-size: 24px;
+    padding-top: 26px;
+    color: blueviolet;
+    font-weight: 540;
+  }
+  span{
+  color: rgb(150, 147, 147);
+    gap: 10px;
+  }
+  @media only screen and (max-width: 600px) {
+    .title {
+      font-size: 1.2rem;
+      font-weight:580 ;
+      top: 50%;
+
+
+    }
+    h1 a{
+      font-size: 12px;
+      position: absolute;
+  top: 52%;
+  left: 6%;}
+    p{
+      font-size: 20px;
+
+
+      font-weight: 500;
+    }
+  .logo{
+    width: 80px;
+    height: 80px;
+    margin: 30px;
+  }
+  .content{
+    padding: 20px;
+  }
+  }
+
   .loader {
     color:  rgb(124, 27, 72);
     font-size: 10px;
@@ -138,3 +166,7 @@ left: 20%;
       -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
   }
+
+
+
+

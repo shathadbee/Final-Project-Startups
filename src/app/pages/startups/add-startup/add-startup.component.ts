@@ -1,11 +1,12 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   FormControl,
   Validators,
 } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 
 import { StartupsService } from 'src/app/core/services/startups/startups.service';
@@ -16,16 +17,19 @@ import { UploadService } from 'src/app/core/services/upload/upload.service';
   templateUrl: './add-startup.component.html',
   styleUrls: ['./add-startup.component.css'],
 })
-export class AddStartupComponent implements OnInit {
+export class AddStartupComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
   imgSrc: any;
-  listSectors:any[]=[];
+  listSectors: any[] = [];
+  loader=true;
+  subject = new Subject();
+
   constructor(
     private formBuilder: FormBuilder,
     private _startupsService: StartupsService,
     private _uploadService: UploadService,
     private location: Location,
-    private  _sectorsService:SectorsService
+    private _sectorsService: SectorsService
   ) {
     this.formGroup = this.formBuilder.group({
       city: null,
@@ -52,9 +56,12 @@ export class AddStartupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllSectors();}
+    setTimeout(() => {
+      this.loader=false;
+    }, 1000);
+    this.getAllSectors();
 
-
+  }
 
   onAddClicked() {
     if (this.formGroup.invalid) {
@@ -62,10 +69,11 @@ export class AddStartupComponent implements OnInit {
     } else {
       if (this.formGroup.controls['logo'].value) {
         this.upload();
-      }
+      } else{
       this.createStartup();
     }
-  }
+  }}
+
   upload() {
     this._uploadService
       .upload(this.formGroup.controls['logo'].value)
@@ -75,12 +83,16 @@ export class AddStartupComponent implements OnInit {
         }
       });
   }
+
   getDownloadURL() {
-    this._uploadService.getDownloadURL().subscribe((url) => {
-      console.log();
-      this.formGroup.controls['logo'].setValue(url);
-      this.createStartup();
-    });
+    this._uploadService
+      .getDownloadURL()
+      .pipe(takeUntil(this.subject))
+      .subscribe((url) => {
+        console.log();
+        this.formGroup.controls['logo'].setValue(url);
+        this.createStartup();
+      });
   }
 
   validateFormGroup() {
@@ -107,6 +119,7 @@ export class AddStartupComponent implements OnInit {
       });
   }
 
+
   onfileInputChang($event: any) {
     this.formGroup.controls['logo'].setValue($event.target.files[0]);
 
@@ -115,12 +128,18 @@ export class AddStartupComponent implements OnInit {
     reader.readAsDataURL(this.formGroup.controls['logo'].value);
   }
 
+  getAllSectors() {
 
-  getAllSectors(){
-    this._sectorsService.getAll().subscribe((result)=>{
-      if(result){
-        this.listSectors= result;
-      }
-    });
+      this._sectorsService.getAll().pipe(takeUntil(this.subject)).subscribe((result) => {
+        if (result) {
+          this.listSectors = result;
+        }
+      })
+    ;
+  }
+
+  ngOnDestroy(): void {
+    this.subject.next(true);
+    this.subject.complete();
   }
 }

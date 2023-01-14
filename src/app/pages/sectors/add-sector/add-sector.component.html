@@ -1,3 +1,7 @@
+<div    class="loader"
+role="status" *ngIf= "loader"  >
+  </div>
+<div *ngIf="!loader">
 <form [formGroup]="formGroup" >
  <label for="file" class="logo"><img [src]="imgSrc"  alt=""
   *ngIf="formGroup.controls['logo'].value" ></label>
@@ -17,7 +21,8 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Color</mat-label>
-      <input matInput placeholder="color" formControlName="color" >
+      <input matInput placeholder="color" formControlName="color"  type="color"
+      class="color">
       </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -27,12 +32,13 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Category Name</mat-label>
-      <input matInput  placeholder="categoryName" formControlName="categoryName" >
+      <input matInput  placeholder="category Name" formControlName="categoryName" >
     </mat-form-field>
 
    <div class="actions-section">
-      <button mat-raised-button color="primary" (click)="onAddSectorCliked()" >
+      <button mat-raised-button style="background-color: rgb(0, 0, 0); color: white;"  (click)="onAddSectorCliked()" >
          Add Sectors</button>
    </div>
 
 </form>
+</div>

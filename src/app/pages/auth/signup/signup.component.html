@@ -4,12 +4,12 @@
 <form  [formGroup]="formGroup" class="sign-up-form">
 <h2 class="title">Sign up</h2>
 <div class="input-field">
-<i class="fas fa-user"></i>
+<i  class="bi bi-person..."></i>
 <input type="text" placeholder="Username"  formControlName="name" >
 </div>
 <div *ngIf="name.invalid && name.touched">You must enter a value </div>
 <div class="input-field">
-<i class="fas fa-age"></i>
+<i class="fas "></i>
 <input type="number" placeholder="Age"  formControlName="age" >
 </div>
 <div *ngIf="age.invalid && age.touched"> You must enter a value </div>
@@ -21,15 +21,24 @@
 
 
 <div class="input-field">
-<i class="fas fa-lock"></i>
-<input type="password" placeholder="Password"  formControlName="password" [ngClass]="(password.touched && password.invalid )?'error-input':''" >
-</div>
+<i class=""></i>
+
+<input [type]=" changetype?'password':'text'" placeholder="Password"  formControlName="password" [ngClass]="(password.touched && password.invalid )?'error-input':''" >
+<span class="eye" (click)="viewpass()">
+  <i [ngClass]= "visible?'bi bi-eye':'bi bi-eye-slash' " ></i>
+  </span></div>
 
 <div  *ngIf="password.touched && password.invalid">{{getPasswordErrorMessage()}}</div>
+
 <div class="input-field">
-  <i class="fas fa-lock"></i>
-  <input type="password" formControlName="confirmPassword" placeholder="Confirm password" [ngClass]="(password.touched && password.invalid )?'error-input':''"  /></div>
+  <i class=""></i>
+  <input [type]=" changetype?'password':'text'" formControlName="confirmPassword" placeholder="Confirm password"
+  [ngClass]="(password.touched && password.invalid )?'error-input':''"  />
+ <span class="eye" (click)="viewpass()">
+ <i [ngClass]= "visible?'bi bi-eye':'bi bi-eye-slash' " ></i>
+ </span></div>
   <div  *ngIf="password.touched && password.invalid">{{getPasswordErrorMessage()}}</div>
+
 
 
 <input type="submit" value="Sign up" class="btn" (click)="onSignupClicked()" >

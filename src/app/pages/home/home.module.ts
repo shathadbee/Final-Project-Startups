@@ -21,7 +21,10 @@ import { ListSectorsComponent } from './list-sectors/list-sectors.component';
 import { FooterComponent } from './footer/footer.component';
 import{ ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import{ ShareIconsModule} from 'ngx-sharebuttons/icons';
-import{FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import{FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DetailsStartupComponent } from './details-startup/details-startup.component'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 const MatImports = [
 
   MatTableModule,
@@ -32,13 +35,13 @@ const MatImports = [
   MatMenuModule,
 
   MatFormFieldModule,
-
+  MatProgressSpinnerModule,
   MatSelectModule,
 
 
 ];
 @NgModule({
-  declarations: [HomeComponent, StartupComponent, PreviewStartupComponent, ListSectorsComponent, FooterComponent],
+  declarations: [HomeComponent, StartupComponent, PreviewStartupComponent, ListSectorsComponent, FooterComponent, DetailsStartupComponent],
   imports: [CommonModule, HomeRoutingModule, HeaderModule,  RouterModule,
     FormsModule,
     MatPaginatorModule,
@@ -50,5 +53,6 @@ const MatImports = [
     ShareIconsModule,
     FontAwesomeModule
   ],
+  exports: [HomeComponent],
 })
 export class HomeModule {}

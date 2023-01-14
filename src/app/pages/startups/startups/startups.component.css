@@ -1,5 +1,7 @@
+/*
 table {
   width: 100%;
+
 }
 
 .row{
@@ -14,15 +16,253 @@ table {
 }
 .btn{
 
-margin-inline-start: 12px;}
+margin-inline-start: 10px;}
 
 .align{
   text-align:end;
 }
-td, th {
-  width: 25%;
+
+.mat-mdc-form-field {
+  font-size: 14px;
+
 }
+.hover{
+  cursor: pointer;
+}
+
+mat-form-field{
+  width: 80%;
+}
+
+
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+
+
+  .mat-mdc-form-field {
+    font-size: 8px;
+padding: 0;
+  }
+
+
+}
+
+
+
+.mat-table {
+  overflow-x: scroll;
+}
+
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
+}
+
+
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+.startups_table{
+  overflow-x: scroll !important;
+
+}
+
+td, th {
+
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+*/
+
+table {
+  width: 100%;
+  justify-content: center;
+
+}
+
+
+.row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.col{
+  flex-basis:140px;
+  max-width: 400px;
+}
+.btn{
+margin-inline-start: 12px;
+
+}
+
+.align{
+  text-align:end;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow-x: scroll;
+}
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+.startups_table{
+  overflow-x: scroll !important;
+
+}
+td, th {
+  width: 10%;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  font-weight: 620;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(88, 88, 90), 0 0 5px rgb(228, 228, 228);
+}
+
+.row1 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 20px 0 0 0;
+}
+
+
+.column {
+  -ms-flex: 25%;
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+  .btn{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    width: 152px;
+  }
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+th{
+  background-color: rgb(241, 242, 243) !important;
+}
+@media screen and (max-width: 460px) {
+  select{
+   width: 200px !important;
+
+  }
+}
+.loader {
+  color:  rgb(124, 27, 72);
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  top:50%;
+left: 50%;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em,
+    2em -2em 0 0em, 3em 0 0 -1em,
+    2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+    3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em,
+    2em -2em 0 0, 3em 0 0 0.2em,
+    2em 2em 0 0, 0 3em 0 -1em,
+    -2em 2em 0 -1em, -3em 0 0 -1em,
+    -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+     -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+     -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+     3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+     -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+    3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+    3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+    -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
 }

@@ -5,10 +5,9 @@ role="status" *ngIf= "loader"  >
 <div class="overlay">
 <img class="cover" src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/Company-178447404.jpg?alt=media&token=7b51a7f9-01b3-483a-874c-b4140655a146" alt="">
 <!--<h1>  {{startup.name}} </h1>-->
-<h1 class="title">{{startup.name}}</h1>
+<h1 class="title">{{startup.name}} <a  (click)="onClicked()" >home</a></h1>
+
 </div>
-
-
 
   <div class="content">
     <div class="head">

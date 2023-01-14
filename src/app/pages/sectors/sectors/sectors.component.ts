@@ -1,8 +1,9 @@
-import { Component, OnChanges, OnDestroy, OnInit ,SimpleChanges,ViewChild} from '@angular/core';
+import { Component, OnDestroy, OnInit ,ViewChild} from '@angular/core';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Sectors } from 'src/app/core/interfaces/sectors.interfaace';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
@@ -12,12 +13,13 @@ import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
   templateUrl: './sectors.component.html',
   styleUrls: ['./sectors.component.css']
 })
-export class SectorsComponent  implements OnInit {
+export class SectorsComponent  implements OnInit, OnDestroy {
 
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  displayedColumns :String[] =['name','color','sectors','categoryName','actions'];
+  subscription: Subscription = new Subscription();
+@ViewChild(MatPaginator) paginator!: MatPaginator;
+loader=true;
+//,'categoryName'
+  displayedColumns :String[] =['name','color','sectors','actions'];
   dataSource = new MatTableDataSource<Sectors>([]);
   loading=true;
   userData:any;
@@ -32,10 +34,14 @@ export class SectorsComponent  implements OnInit {
   ngOnInit(): void {
 
     this.getuserInf()
+    setTimeout(() => {
+      this.loader=false;
+    }, 1000);
   }
 
 
   getuserInf(){
+
     this._authService.userInfo.subscribe((user)=>{
       this.userData = user;
       console.log(this.userData );
@@ -47,15 +53,17 @@ export class SectorsComponent  implements OnInit {
 
 
 getAllData(){
+  this.subscription.add(
   this._sectorsService.getAll().subscribe((result:any)=>{
     if(result){
     this.dataSource =new MatTableDataSource(result);
     console.log(result);
-    this.dataSource.paginator =this.paginator;
+    setTimeout(()=> this.dataSource.paginator = this.paginator,1000)
     this.dataSource._updateChangeSubscription();
-    this.loading=false;
+
   }
-  })
+
+  }) )
 }
 onRowClicked(row : Sectors){
   this.router.navigate(['/sectors/details-sector'],{
@@ -82,6 +90,9 @@ this._sectorsService.delete(row.key).then(()=>{
 applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
   this.dataSource.filter = filterValue.trim().toLowerCase();
+  if(this.dataSource.paginator){
+    this.dataSource.paginator.firstPage();
+  }
 }
 
 onAddClicked(){
@@ -89,9 +100,8 @@ onAddClicked(){
 }
 
 
-
-
-
-
-
+ngOnDestroy(): void {
+  this.subscription.unsubscribe();
+  this.dataSource.disconnect();
+}
 }

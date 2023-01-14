@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 @Component({
   selector: 'app-list-sectors',
@@ -8,7 +8,7 @@ import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 })
 export class ListSectorsComponent  implements OnInit , OnDestroy {
   subscription: Subscription = new Subscription();
-
+  subject = new Subject();
   dataArray:any;
   constructor(
    private _sectorsService:SectorsService){
@@ -19,7 +19,7 @@ export class ListSectorsComponent  implements OnInit , OnDestroy {
   }
   getAllSectors(){
     this.subscription.add(
-      this._sectorsService.getAll().subscribe((result: any) => {
+      this._sectorsService.getAll().pipe(takeUntil(this.subject)).subscribe((result: any) => {
         if (result) {
           this.dataArray = result;
          }
@@ -27,8 +27,10 @@ export class ListSectorsComponent  implements OnInit , OnDestroy {
       );
   }
 
+
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subject.next(true);
+    this.subject.complete();
   }
 
 }

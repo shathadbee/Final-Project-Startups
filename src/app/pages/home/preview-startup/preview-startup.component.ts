@@ -12,7 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './preview-startup.component.html',
   styleUrls: ['./preview-startup.component.css']
 })
-export class PreviewStartupComponent {
+export class PreviewStartupComponent  implements OnInit ,OnDestroy{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataArray = new MatTableDataSource<Startup>([]);
   hidePageSize = true;
@@ -33,6 +33,7 @@ export class PreviewStartupComponent {
 
 
 
+
   getAllStartups() {
     this.subscription.add(
       this._startupsService.getAll().subscribe((result: any) => {
@@ -46,6 +47,7 @@ export class PreviewStartupComponent {
     );
   }
 
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
     this.dataArray.disconnect();
@@ -53,6 +55,12 @@ export class PreviewStartupComponent {
   }
 
 
+  onClicked(item : Startup){
+    this.router.navigate(['/home/details-startup'],{
+      queryParams:{
+        key:item.key
+      }})
+  }
 
 }
 

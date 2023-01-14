@@ -1,34 +1,47 @@
 
-<div  style="display: flex; justify-content: center;  "  *ngIf="loading"        >
-  <mat-spinner  diameter="20"  color="primary">  </mat-spinner>
+<div    class="loader"
+role="status" *ngIf= "loader"  >
   </div>
+<div *ngIf="!loader">
 
-<div *ngIf="!loading">
+<div class="header">
+    <h1>Startups Jordan</h1>
+  </div>
+  <label style="font-size: 16px;font-weight:500;"> Search Of Sectors:</label>
+
+   <mat-form-field appearance="fill">
+    <mat-select  (selectionChange)="filterSector($event)">
+      <mat-option value="all"> All
+      </mat-option>
+      <mat-option   *ngFor="let item of listSectors" [value]="item.name">{{item.name}} </mat-option>
+    </mat-select>
+  </mat-form-field>
 <div class="row" >
+
   <span class="col">
     <mat-form-field appearance="outline">
       <mat-label>Search</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Amman" #input>
       <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>  </span>
+    </mat-form-field>
+
+
+
+  </span>
+
   <span class="col align">
-    <button mat-raised-button  class="btn"  color="primary" (click)="onAddClicked()"
+    <button mat-raised-button  class="btn" style="background-color: rgb(124, 27, 72);color: #ffffff;"  (click)="onAddClicked()"
     *ngIf="userData.role==='admin'"
     >Add Startup</button>
-
-
-    <button mat-raised-button   class="btn"  color="primary"
+    <button mat-raised-button  class="btn"style="background-color: rgb(124, 27, 72);color: #ffffff;"
       (click)="onRequestAddStartup()"     *ngIf="userData.role==='enduser'"  >
       Request Add Startup</button>
-
   </span>
 </div>
 
-
-
-  <table mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef > Name </th>
+  <mat-table class="startups_table"  mat-table [dataSource]="dataSource" >
+    <ng-container matColumnDef="name" >
+      <th mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let row"> {{row.name}} </td>
     </ng-container>
 
@@ -36,22 +49,20 @@
     <ng-container matColumnDef="sector">
       <th mat-header-cell *matHeaderCellDef > Sector </th>
       <td mat-cell *matCellDef="let row">
-      <div  *ngFor="let item of row.sectors"  >  {{item.name}}     </div></td>
+      <div  *ngFor=" let item of row.sectors" >  {{item.name}}  </div></td>
     </ng-container>
 
     <ng-container matColumnDef="emailaddress">
       <th mat-header-cell *matHeaderCellDef > Email Address </th>
       <td mat-cell *matCellDef="let row"> {{row.emailAddress}} </td>
     </ng-container>
-
-
     <ng-container matColumnDef="city">
       <th mat-header-cell *matHeaderCellDef > City </th>
       <td mat-cell *matCellDef="let row"> {{row.city}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="actions"    *ngIf="userData.role==='admin'"            >
-      <th mat-header-cell *matHeaderCellDef > </th>
+    <ng-container  matColumnDef="actions"    *ngIf="userData.role==='admin'"            >
+      <th mat-header-cell *matHeaderCellDef ></th>
       <td mat-cell *matCellDef="let row">
         <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
         <mat-icon>more_vert</mat-icon>
@@ -62,28 +73,62 @@
           <span>Edit</span>
         </button>
 
-        <button mat-menu-item  (click)="onDeletClicked(row)">
-          <mat-icon>delete</mat-icon>
+        <button mat-menu-item   (click)="onDeletClicked(row)">
+          <mat-icon style="color: red;">delete</mat-icon>
           <span>Delete</span>
         </button>
       </mat-menu>
          </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row class="hov"    *matRowDef="let row; columns: displayedColumns;"
-       (click)="onRowClicked(row)"     ></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row class="hov"   *matRowDef="let row; columns: displayedColumns;"
+       (click)="onRowClicked(row)"   ></tr>
 
 
-    <!-- Row shown when there is no matching data. -->
+
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">
         No data matching the filter "{{input.value}}"
       </td>
     </tr>
 
-  </table>
+  </mat-table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"
+  <mat-paginator [pageSizeOptions]="[5, 10, 15, 20,25]"
    aria-label="Select page of users"></mat-paginator>
+
+  <div class="row1">
+
+    <div class="column">
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(1).jpg?alt=media&token=80fcff60-cd6c-4339-adc8-cea12b16de01" alt="">
+
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/download.jpg?alt=media&token=b7bbcab8-553c-4df7-ae34-292719e89811" style="width:100%">
+
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(5).jpg?alt=media&token=12c7f694-9ca8-4478-91b2-7ea119c6f00d" alt="">
+    </div>
+    <div class="column">
+     <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(8).jpg?alt=media&token=4d1c7db9-61cf-4fc0-a15d-78d6f33e63f7" alt="">
+     <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(5).jpg?alt=media&token=12c7f694-9ca8-4478-91b2-7ea119c6f00d" alt="">
+
+     <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(6).jpg?alt=media&token=d06ffc74-92c0-460f-8b3e-7f2cc5eefb1a" style="width:100%">
+    </div>
+    <div class="column">
+      <img src="" style="width:100%">
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(2).jpg?alt=media&token=889afe1b-1424-4341-bf08-783a4bfa9deb" style="width:100%">
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/Company-178447404.jpg?alt=media&token=7b51a7f9-01b3-483a-874c-b4140655a146" style="width:100%">
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/business-structure-which-type-is-best-for-your-business.png?alt=media&token=27b55fcd-e1fc-4ad6-a7b9-01a34f8d8e2b" style="width:100%">
+
+    </div>
+    <div class="column">
+      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(5).jpg?alt=media&token=12c7f694-9ca8-4478-91b2-7ea119c6f00d" alt="">
+<img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/images%20(7).jpg?alt=media&token=8b5b4578-2663-4346-a9fa-c6e6da595b84" alt="">
+<img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/download.jpg?alt=media&token=b7bbcab8-553c-4df7-ae34-292719e89811" style="width:100%">
+</div>
+
+
   </div>
+
+
+  </div>
+

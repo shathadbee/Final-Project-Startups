@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailsStartupComponent } from './details-startup/details-startup.component';
 import { HomeComponent } from './home/home.component';
 import { ListSectorsComponent } from './list-sectors/list-sectors.component';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
@@ -12,19 +13,22 @@ const routes: Routes = [
 {path:'',
 redirectTo:'startup',
 pathMatch:'full'
-
 },
 
-    {path:'startup',
+ {path:'startup',
     component:StartupComponent,
-    },
+ },
     {path:'startup-preview',
     component :PreviewStartupComponent,
     },
 {path:'sector-list',
   component : ListSectorsComponent,
 },
-] }];
+
+] },
+{path:'details-startup',
+  component : DetailsStartupComponent,
+},];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

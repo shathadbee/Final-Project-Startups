@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent  implements OnInit {
   menu_icon_variable:boolean=false;
+  fixedNavBar: boolean = false;
 
   menuVariable:boolean=false;
   constructor(private router:Router){
@@ -17,6 +18,14 @@ export class HeaderComponent  implements OnInit {
   ngOnInit(){
 
   }
+  @HostListener('window:scroll', ['$event']) onscroll() {
+    if (window.scrollY > 30) {
+      this.fixedNavBar = true;
+    } else {
+      this.fixedNavBar = false;
+    }
+  }
+
   open_closeMenu(){
    this.menuVariable =! this.menuVariable;
    this.menu_icon_variable =! this.menu_icon_variable;

@@ -1,8 +1,13 @@
-<app-side-nav *ngIf="isLoggedIn$ | async ; else notAuth" >
+
+
+
+<app-side-nav *ngIf="isLoggedIn$ | async ; else notAuth">
 </app-side-nav>
 
-
-<ng-template #notAuth>
-  <router-outlet></router-outlet>
-
+<div class="loader"
+role="status" *ngIf="loader"
+ >
+  <span class="visually-hidden">Loading...</span> </div>
+<ng-template #notAuth    >
+  <div *ngIf= "!loader">   <router-outlet></router-outlet> </div>
 </ng-template>

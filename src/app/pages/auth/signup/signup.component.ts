@@ -13,6 +13,8 @@ import { CustomValidators } from 'src/app/help/custom-validators';
 })
 export class SignupComponent implements OnInit {
   formGroup!:FormGroup;
+  visible = true;
+  changetype:boolean=true;
   constructor(private router:Router ,private formBuilder:FormBuilder,private _authService:AuthService){}
   ngOnInit(): void {
 
@@ -97,6 +99,12 @@ control?.markAsTouched({onlySelf:true});
   }
   get confirmPassword() {
     return this.formGroup.controls['confirmPassword'];
+  }
+
+
+  viewpass(){
+this.visible=!this.visible;
+this.changetype=!this.changetype;
   }
 }
 

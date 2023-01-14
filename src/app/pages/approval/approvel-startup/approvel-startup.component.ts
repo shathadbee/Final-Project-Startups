@@ -1,48 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
 import { StartupsService } from 'src/app/core/services/startups/startups.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-approvel-startup',
   templateUrl: './approvel-startup.component.html',
   styleUrls: [ './approvel-startup.component.css']
 })
-export class ApprovelStartupComponent implements OnInit {
+export class ApprovelStartupComponent implements OnInit ,OnDestroy {
   dataSource = new MatTableDataSource<Startup>([]);
   toApproveStartup:any;
   userData:any;
   loading= true;
-  displayedColumns: string[] = ['name', 'sector', 'emailaddress', 'city','actions'];
+  displayedColumns: string[] = ['name','sector', 'emailaddress', 'city','actions'];
    key:string='';
-
-
+   loader=true;
+   subject = new Subject();
 
 constructor( private _startupsService: StartupsService,
    private router:Router,  private _authService:AuthService
-   ,private  activatedRoute:ActivatedRoute ){
+){
 
 }
-startup:Startup = {
-  name: '',
-  sectors: [],
-  emailAddress: '',
-  city: '',
-  websiteUrl: ''
-};
+
 
 
 getAllData(){
-  this._startupsService.getAllRequest().subscribe((result:any)=>
+
+  this._startupsService.getAllRequest()
+  .pipe(takeUntil(this.subject)).subscribe((result:any) =>
   {  if(result){
     this.dataSource=new MatTableDataSource(result);
     this.dataSource._updateChangeSubscription();
-  }});
-
+    setTimeout(() => {
+      this.loader=false;
+    }, 1000);
+  }})
 
 }
+
 ngOnInit(): void {
       this.getAllData();
 
@@ -65,21 +65,20 @@ ngOnInit(): void {
 }*/
 
 getById(){
-  this._startupsService.getByIdReguest(this.key).subscribe((startup:any)=>{
+  this._startupsService.getByIdRequest(this.key).pipe(takeUntil(this.subject))
+  .subscribe((startup:any)=>{
     if(startup){
       this.toApproveStartup=startup;
       //this.loading=false;
     }
 
     })
-
-
   }
   onApprovalClicked(key:any){
+    this._startupsService.getByIdRequest(key).subscribe((startup)=>{
+      this.toApproveStartup=startup;
       this._startupsService.create(this.toApproveStartup).then(()=>{
-        this._startupsService.deleteRequest(key)
-
-
+        this._startupsService.deleteRequest(key)})
     })
 
 
@@ -87,7 +86,7 @@ getById(){
         }
 
 
-        /*onApprovalClicked(key:any){
+       /*onApprovalClicked(key:any){
           this._startupsService.getByIdReguest(key).subscribe((startup)=>{
             this.toApproveStartup=startup
             this._startupsService.create(this.toApproveStartup).then(()=>{
@@ -105,6 +104,10 @@ getById(){
     });
     }
 
+    ngOnDestroy(): void {
+      this.subject.next(true);
+      this.subject.complete();
+    }
 
 
 

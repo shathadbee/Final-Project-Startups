@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
 import { StartupsService } from 'src/app/core/services/startups/startups.service';
 
@@ -8,8 +9,9 @@ import { StartupsService } from 'src/app/core/services/startups/startups.service
   templateUrl: './startup-details.component.html',
   styleUrls: ['./startup-details.component.css']
 })
-export class StartupDetailsComponent implements OnInit {
-
+export class StartupDetailsComponent implements OnInit,OnDestroy {
+  subject = new Subject();
+  loader=true;
   startup:Startup = {
     name: '',
     sectors:[],
@@ -25,7 +27,8 @@ export class StartupDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((result)=>{
+
+    this.activatedRoute.queryParams.pipe(takeUntil(this.subject)).subscribe((result)=>{
       if(result['key']){
         this.key=result['key'];
         this.getById();
@@ -36,10 +39,13 @@ export class StartupDetailsComponent implements OnInit {
 
 
     getById(){
-      this._startupsService.getById(this.key).subscribe((result:any)=>{
-        if(result){
-          this.startup=result;
-          this.loading=false;
+
+    this._startupsService.getById(this.key).pipe(takeUntil(this.subject)).subscribe((result:any)=>{
+   if(result){
+   this.startup=result;
+   setTimeout(() => {
+    this.loader=false;
+  }, 1000);
         }
 
         })
@@ -48,8 +54,10 @@ export class StartupDetailsComponent implements OnInit {
 
 
 
-
-
+         ngOnDestroy(): void {
+          this.subject.next(true);
+          this.subject.complete();
+        }
 
     }
 

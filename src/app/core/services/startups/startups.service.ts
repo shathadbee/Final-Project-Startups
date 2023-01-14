@@ -21,12 +21,12 @@ export class StartupsService {
   ) {
     this.dbRef = angularFireDatabase.list(this.dbpath);
   }
-  create(data: Startup) {
-    return this.angularFireDatabase.list('/startups/').push(data);
+  create(data:Startup) {
+    return this.angularFireDatabase.list('/startups').push(data);
   }
 
   createRequest(data: Startup) {
-    return this.angularFireDatabase.list('/requestStartup').push(data);
+    return this.angularFireDatabase.list('/requestStartup/').push(data);
   }
 
 
@@ -65,23 +65,21 @@ export class StartupsService {
 
 
   getAllRequest(): Observable<any> {
-    return this.angularFireDatabase.list<Startup>('/requestStartup')
+    return this.angularFireDatabase.list<Startup>('/requestStartup/')
       .snapshotChanges()
       .pipe(
         map((data) =>
-          data.map((obj) => ({ key: obj.payload.key, ...obj.payload.val() }))
+          data.map((obj) => ({ ...obj.payload.val() , key: obj.payload.key }))
         )
       );
   }
 
   deleteRequest(key: string | undefined) {
-    return this.angularFireDatabase.list<Startup>('/requestStartup').remove(key);
+    return this.angularFireDatabase.list<Startup>('/requestStartup/').remove(key);
   }
 
 
-
-
-  getByIdReguest(key: string) {
+  getByIdRequest(key: string) {
     return this.angularFireDatabase
       .object('/requestStartup/'+ key)
       .valueChanges();

@@ -16,8 +16,9 @@ navMune:NavMenuDto;
 userData:any;
 
 
-loading= true;
 
+
+loader=true;
 constructor( private breakpoint :BreakpointObserver,
   private _sideNavService:SideNavService ,private _authService:AuthService) {
   this.navMune=this._sideNavService.getNavMenu();
@@ -42,7 +43,9 @@ this._authService.userInfo.subscribe((user)=>{
 this.userData=user;
 console.log(this.userData);
 if(this.userData.role){
-  this.loading=false;
+  setTimeout(() => {
+    this.loader=false;
+  }, 1000);
 }
 
 })
