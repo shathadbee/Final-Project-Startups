@@ -4,6 +4,7 @@ import { DetailsStartupComponent } from './details-startup/details-startup.compo
 import { HomeComponent } from './home/home.component';
 import { ListSectorsComponent } from './list-sectors/list-sectors.component';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
+import { SliderComponent } from './slider/slider.component';
 import { StartupComponent } from './startup/startup.component';
 
 const routes: Routes = [
@@ -24,11 +25,15 @@ pathMatch:'full'
 {path:'sector-list',
   component : ListSectorsComponent,
 },
-
+{path:'slider',
+  component : SliderComponent,
+},
 ] },
+
 {path:'details-startup',
   component : DetailsStartupComponent,
-},];
+},
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

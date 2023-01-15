@@ -24,9 +24,12 @@ import{ ShareIconsModule} from 'ngx-sharebuttons/icons';
 import{FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsStartupComponent } from './details-startup/details-startup.component'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { SliderComponent } from './slider/slider.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const MatImports = [
-
+  BrowserAnimationsModule,
   MatTableModule,
   MatButtonModule,
   MatInputModule,
@@ -37,11 +40,13 @@ const MatImports = [
   MatFormFieldModule,
   MatProgressSpinnerModule,
   MatSelectModule,
+  MatToolbarModule,
+
 
 
 ];
 @NgModule({
-  declarations: [HomeComponent, StartupComponent, PreviewStartupComponent, ListSectorsComponent, FooterComponent, DetailsStartupComponent],
+  declarations: [HomeComponent, StartupComponent, PreviewStartupComponent, ListSectorsComponent, FooterComponent, DetailsStartupComponent, SliderComponent],
   imports: [CommonModule, HomeRoutingModule, HeaderModule,  RouterModule,
     FormsModule,
     MatPaginatorModule,

@@ -15,6 +15,7 @@ import { SideNavModule } from './core/components/layouts/side-nav/side-nav.modul
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { take } from 'rxjs';
 import { AuthService } from './core/services/auth/auth.service';
+
 import {
   AppInitalizService,
   appInitializer,

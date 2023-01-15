@@ -14,21 +14,32 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class PreviewStartupComponent  implements OnInit ,OnDestroy{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  dataArray = new MatTableDataSource<Startup>([]);
+
+  dataArray =new MatTableDataSource<Startup>([]);
+
   hidePageSize = true;
   subscription: Subscription = new Subscription();
   obs!: Observable<any>;
-
-
+searchText: any;
+listSectors: any[] = [];
+filterdData:any[]=[];
+  value: any;
   constructor(
     private _startupsService: StartupsService,
-
+    private _sectorsService: SectorsService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
+startup:Startup = {
+  name: '',
+  sectors:[],
+  websiteUrl: '',
+  emailAddress: '',
+};
 
   ngOnInit(): void {
     this.getAllStartups();
+    this.getAllSectors();
   }
 
 
@@ -36,7 +47,7 @@ export class PreviewStartupComponent  implements OnInit ,OnDestroy{
 
   getAllStartups() {
     this.subscription.add(
-      this._startupsService.getAll().subscribe((result: any) => {
+      this._startupsService.getAll().subscribe((result: any) =>{
         if (result) {
           this.dataArray = new MatTableDataSource(result);
           this.dataArray._updateChangeSubscription();
@@ -48,6 +59,14 @@ export class PreviewStartupComponent  implements OnInit ,OnDestroy{
   }
 
 
+  getAllSectors() {
+    this._sectorsService.getAll().subscribe((result) => {
+      if (result) {
+        this.listSectors = result;
+      }
+    })
+  ;
+}
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
     this.dataArray.disconnect();
@@ -62,6 +81,19 @@ export class PreviewStartupComponent  implements OnInit ,OnDestroy{
       }})
   }
 
+  filterSector(event:any){
+    this._startupsService.getAll().subscribe((startups)=>{
+      console.log(startups)
+this.filterdData=[];
+if (event.value ==="all"){
+  this.dataArray = new MatTableDataSource(startups);
+}else{
+  this.filterdData= startups.filter((startups:any)  =>
+  Object.values(startups.sectors[0]).includes(event.value)
+  );
+  this.dataArray=new MatTableDataSource(this.filterdData)
 }
+}
+  )}
 
-
+}

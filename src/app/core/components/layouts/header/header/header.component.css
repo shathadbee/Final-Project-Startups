@@ -340,3 +340,32 @@ font-weight: 520;
   font-size: 14px;
   font-weight: 400;
 }
+
+#about-section{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10%;
+  flex-wrap: wrap;
+}
+.about-right{
+  width: 57%;
+}
+.about-right ul li{
+  display: flex;
+  align-items: center;
+}
+.about-right h1{
+  color: rgb(124, 27, 72);
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  padding-left: 26px;
+  font-weight: 500;
+}
+.about-right p{
+  color: #444;
+  line-height: 26px;
+  font-size: 15px;
+}
