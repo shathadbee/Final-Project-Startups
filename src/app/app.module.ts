@@ -36,6 +36,7 @@ import {
     SideNavModule,
 
     FontAwesomeModule,
+
   ],
   providers: [
     {

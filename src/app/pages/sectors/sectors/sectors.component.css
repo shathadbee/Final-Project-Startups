@@ -4,7 +4,7 @@
   align-items: center;
 }
 .full-width{
-  width: auto;
+max-width:200px;
 }
 .action-col{
   margin-inline-start: 10px;
@@ -55,6 +55,13 @@ th ,td{
 
 }
 
+@media screen and (max-width: 350px) {
+  table {
+    display: block;
+    max-width : 40%;
+    overflow-x: scroll !important;
+  }
+}
 @media (max-width:1300px) {
 
 .content  {

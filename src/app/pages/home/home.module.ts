@@ -26,10 +26,10 @@ import { DetailsStartupComponent } from './details-startup/details-startup.compo
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SliderComponent } from './slider/slider.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const MatImports = [
-  BrowserAnimationsModule,
+
   MatTableModule,
   MatButtonModule,
   MatInputModule,
@@ -51,7 +51,9 @@ const MatImports = [
     FormsModule,
     MatPaginatorModule,
 
-    ReactiveFormsModule, ...MatImports,
+    ReactiveFormsModule,
+
+     ...MatImports,
     ShareButtonsModule.withConfig({
       debug:true,
     }),

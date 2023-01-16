@@ -7,14 +7,14 @@
 
       <div class="nav-links" [class.menuClass] ="menuVariable"  [class.menu_icon_Class] ="menu_icon_variable"  >
 
-        <button  id= "icon"    class="btn-close btn-close" style="color:rgb(7, 4, 24) ; border:none!important;    margin-bottom: 0;    margin-top: 30px; font-size: 18px;"
+        <button  id= "icon" class="btn-close btn-close" style="color:rgb(7, 4, 24) ; border:none!important;    margin-bottom: 0;    margin-top: 30px; font-size: 18px;"
 
          (click)="open_closeMenu()" ></button>
 
         <ul class="">
-          <li><a href="#home"> HOME</a></li>
-          <li><a href="#sectors"> SECTORS</a></li>
-          <li><a href="#startups"> STARTUPS</a></li>
+          <li><a href="#home"> HOME </a> </li>
+          <li><a href="#services">SERVICES  </a> </li>
+          <li><a href="#about-section">ABOUT US </a> </li>
 
           <li class="auth-btns-above700"><a [routerLink]="['/auth/signup']" >SIGN UP</a></li>
           <li  class="auth-btns-above700"><a [routerLink]="['/auth/login']" >LOG IN</a></li>
@@ -36,16 +36,16 @@
   <div class="text-box">
   <h1> Welcome To Startups Jo</h1>
 
-  <p>Discover the startups that will shape our future.<br>
-     Contact them. Invest in them. Use their services.<br>
-      Read their news Or give them your support <br>
-      Or add your startup.<br></p>
+  <p>Discover the startups that will shape our future.
+     Contact them. Invest in them. Use their services.
+   Read their news Or give them your support
+      Or add your startup.</p>
   <a  [routerLink]="['/auth/signup']" > Get Started </a>
   </div>
 
 
   </section>
-  <section id="">
+  <section id="services">
 
     <div class="container">
 
@@ -77,14 +77,14 @@
 
   </section>
 
-<!-- About Section -->
+
 <section id="about-section">
-  <!-- about left  -->
+
   <div class="about-left">
       <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/jordan-map.webp?alt=media&token=805936a3-a3a1-4d4d-8334-b13fb5a009be" width="300px" style="margin-bottom:20px"/>
   </div>
 
-  <!-- about right  -->
+
   <div class="about-right">
 
       <h1>About Us</h1>

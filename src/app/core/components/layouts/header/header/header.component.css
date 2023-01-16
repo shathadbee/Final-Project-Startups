@@ -91,7 +91,7 @@ font-size: 1.2rem  }
   }
   .text-box{
     padding: 80px 0;
-
+flex-wrap: wrap;
   width: 90%;
   color: hsl(0, 100%, 99%);
 
@@ -118,7 +118,12 @@ font-size: 1.2rem  }
 align-content: center;
 gap: 20px;
 line-height: 1.8;
-  }
+width: 34%;
+height: 100%;
+display: flex;
+
+}
+
   .text-box a{
     text-decoration: none;
   width: 160px;
@@ -160,9 +165,10 @@ line-height: 1.8;
     .auth-btns{
       display: none !important;
     }
-    .text-box h1{  font-size: 18px;     padding-bottom: 10px;
-    }
+    .text-box h1{  font-size: 18px;     padding-bottom: 10px;}
+
     .text-box p{    font-size: 12px;
+      width: 84%;
             }
     .nav-links ul li{
   display: block;
@@ -350,22 +356,26 @@ font-weight: 520;
   padding: 0 10%;
   flex-wrap: wrap;
 }
+
 .about-right{
   width: 57%;
 }
+
 .about-right ul li{
   display: flex;
   align-items: center;
 }
+
 .about-right h1{
   color: rgb(124, 27, 72);
   font-size: 1.6rem;
   margin-bottom: 14px;
-  padding-left: 26px;
+  padding-left: 28px;
   font-weight: 500;
 }
+
 .about-right p{
   color: #444;
-  line-height: 26px;
-  font-size: 15px;
+  line-height: 22px;
+  font-size: 12px;
 }
