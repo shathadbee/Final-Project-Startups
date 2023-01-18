@@ -2,13 +2,13 @@
 <div class="start">
   <h2>Discover Jordan's<br> cutting-edge<br> and inspiring startups.</h2>
   <section>
-    <mat-form-field appearance="fill">
+    <!--<mat-form-field appearance="fill">
       <mat-select  (selectionChange)="filterSector($event)">
         <mat-option value="all"> All
         </mat-option>
         <mat-option   *ngFor="let item of listSectors" [value]="item.name">{{item.name}} </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field>-->
     <div class="container">
 
       <div class="card" *ngFor="let item of obs| async">

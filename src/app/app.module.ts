@@ -11,7 +11,6 @@ import { HeaderModule } from './core/components/layouts/header/header.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SideNavModule } from './core/components/layouts/side-nav/side-nav.module';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { take } from 'rxjs';
 import { AuthService } from './core/services/auth/auth.service';

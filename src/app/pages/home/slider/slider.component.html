@@ -1,0 +1,4 @@
+<div *ngFor="let image of images; let i = index" >
+
+  <img [src]="image.src" [ngClass]="{ 'active': i === currentSlide }" >
+</div>
