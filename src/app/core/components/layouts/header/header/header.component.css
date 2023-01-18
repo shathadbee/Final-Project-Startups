@@ -121,7 +121,7 @@ line-height: 1.8;
 width: 34%;
 height: 100%;
 display: flex;
-
+max-width:21rem
 }
 
   .text-box a{
@@ -152,8 +152,10 @@ display: flex;
       display: none !important ;
     }
 
+
   }
-  @media(max-width :760px){
+  @media(max-width :768px){
+    #about-section{  padding: 0 !important;}
     nav{
       height: fit;
       padding: 0 20px;
@@ -264,6 +266,8 @@ width: 68%;
     top: 40%;
     left: 50%;
   }
+
+
   }
 
 
@@ -358,7 +362,7 @@ font-weight: 520;
 }
 
 .about-right{
-  width: 57%;
+  width: 50%;
 }
 
 .about-right ul li{
@@ -368,9 +372,9 @@ font-weight: 520;
 
 .about-right h1{
   color: rgb(124, 27, 72);
-  font-size: 1.6rem;
+
   margin-bottom: 14px;
-  padding-left: 28px;
+
   font-weight: 500;
 }
 
@@ -378,4 +382,5 @@ font-weight: 520;
   color: #444;
   line-height: 22px;
   font-size: 12px;
+
 }

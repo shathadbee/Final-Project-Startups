@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, switchMap } from 'rxjs';
 
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { LoaderService } from '../loader.service';
+import { LoaderService } from '../loader/loader.service';
 @Injectable({
   providedIn: 'root',
 })
 export class AppInitalizService {
-private userData=new BehaviorSubject<null>(null);
-readonly userData$=this.userData.asObservable();
+private userData=new BehaviorSubject<any>({});
+readonly userData$ =this.userData.asObservable();
 
   constructor(private _authService: AuthService,
     private fireAuth:AngularFireAuth,
@@ -20,14 +20,11 @@ readonly userData$=this.userData.asObservable();
     private _loader:LoaderService) {}
 
     getUserById(uid:any){
-      return this.db.object('/users'+ uid);
+      return this.db.object('/users/'+ uid);
     }
    // : Promise<any>
   //this._authService.getUserById('') ;
       //resolve(true);
-
-
-
   appInitializer(){
     return new Promise<boolean>((resolve, reject) => {
       console.log('App-Initializer');

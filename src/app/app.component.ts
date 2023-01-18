@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './core/services/auth/auth.service';
-import { LoaderService } from './core/services/loader.service';
+import { LoaderService } from './core/services/loader/loader.service';
 
 
 @Component({

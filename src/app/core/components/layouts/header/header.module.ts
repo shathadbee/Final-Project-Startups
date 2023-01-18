@@ -21,6 +21,7 @@ const MatImports = [
   declarations: [HeaderComponent],
   imports: [CommonModule,  RouterModule ,
     ...MatImports],
+
   exports: [HeaderComponent],
 })
 export class HeaderModule {}
