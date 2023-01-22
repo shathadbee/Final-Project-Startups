@@ -23,7 +23,10 @@ role="status" *ngIf= "loader"  >
 <p>  Sectors: </p><span *ngFor="let item of startup.sectors"  >{{item.name}} .</span>
 <p> Year Of Establish:</p><span>{{startup.yearOfEstablish}} </span>
 <p> Number Of Employees:</p><span>{{startup.numberOfEmployees}} </span>
-        <p>Website:</p> <span> <a href="{{startup.websiteUrl}}">Website</a> </span>
-</div> </div>
+<p>Website:</p> <span> <a href="{{startup.websiteUrl}}">Website</a> </span>
+</div>
+<app-footer></app-footer>
+ </div>
+
 
 

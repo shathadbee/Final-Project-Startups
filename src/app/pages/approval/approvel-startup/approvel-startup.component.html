@@ -39,7 +39,7 @@ role="status" *ngIf= "loader"  >
       </button>
       <mat-menu #menu="matMenu"    multiple >
         <button mat-menu-item  (click)="onApprovalClicked(row.key)"       >
-          <mat-icon>save</mat-icon>
+          <mat-icon> <strong style="color: #1b811b;">check</strong></mat-icon>
           <span>Approval</span>
         </button>
 

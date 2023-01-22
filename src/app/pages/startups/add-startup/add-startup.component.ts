@@ -40,6 +40,7 @@ export class AddStartupComponent implements OnInit, OnDestroy {
       websiteUrl: [null, [Validators.required]],
       numberOfEmployees: null,
       yearOfEstablish: '',
+      describtion:null,
     });
   }
 
@@ -113,6 +114,7 @@ export class AddStartupComponent implements OnInit, OnDestroy {
         yearOfEstablish: this.formGroup.controls['yearOfEstablish'].value,
         numberOfEmployees: this.formGroup.controls['numberOfEmployees'].value,
         logo: this.formGroup.controls['logo'].value,
+        describtion:this.formGroup.controls['describtion'].value,
       })
       .then(() => {
         this.location.back();

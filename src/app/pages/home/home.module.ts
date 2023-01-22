@@ -27,7 +27,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SliderComponent } from './slider/slider.component';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatTabsModule } from '@angular/material/tabs';
 const MatImports = [
 
   MatTableModule,
@@ -36,12 +36,10 @@ const MatImports = [
   MatListModule,
   MatIconModule,
   MatMenuModule,
-
-  MatFormFieldModule,
   MatProgressSpinnerModule,
   MatSelectModule,
   MatToolbarModule,
-
+  MatTabsModule
 
 
 ];

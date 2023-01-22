@@ -7,6 +7,7 @@ import { Startup } from 'src/app/core/interfaces/startups.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 @Component({
   selector: 'app-preview-startup',
   templateUrl: './preview-startup.component.html',
@@ -57,7 +58,9 @@ startup:Startup = {
       })
     );
   }
+sectorsValue($event:any){
 
+}
 
   getAllSectors() {
     this._sectorsService.getAll().subscribe((result) => {

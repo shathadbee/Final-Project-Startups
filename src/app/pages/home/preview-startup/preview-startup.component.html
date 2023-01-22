@@ -9,7 +9,8 @@
         <mat-option   *ngFor="let item of listSectors" [value]="item.name">{{item.name}} </mat-option>
       </mat-select>
     </mat-form-field>-->
-    <div class="container">
+      <div class="container">
+
 
       <div class="card" *ngFor="let item of obs| async">
         <div class="content">
@@ -18,13 +19,13 @@
           </div>
           <div class="contentBx">
             <h4>{{ item.name }}</h4>
-            <span  *ngFor=" let item of item.sectors" >  {{item.name}}  </span>
             <!--<span >{{item.sectors.}} .</span>-->
         <button    (click)="onClicked(item)" >More Read!</button>
           </div>
         </div>
       </div>
-    </div>
+
+           </div>
   </section>
 
   <mat-paginator     [hidePageSize]="hidePageSize" [pageSizeOptions]="[5, 10, 15,20,25]" >

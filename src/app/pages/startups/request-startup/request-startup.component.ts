@@ -37,6 +37,7 @@ export class RequestStartupComponent implements OnInit {
       websiteUrl: [null, [Validators.required]],
       numberOfEmployees: null,
       yearOfEstablish: '',
+      describtion:null,
     });
   }
 
@@ -105,6 +106,7 @@ export class RequestStartupComponent implements OnInit {
         yearOfEstablish: this.formGroup.controls['yearOfEstablish'].value,
         numberOfEmployees: this.formGroup.controls['numberOfEmployees'].value,
         logo: this.formGroup.controls['logo'].value,
+        describtion:this.formGroup.controls['describtion'].value,
       })
       .then(() => {
         this.location.back();

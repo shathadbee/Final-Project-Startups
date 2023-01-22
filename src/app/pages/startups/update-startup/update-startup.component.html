@@ -60,6 +60,10 @@ role="status" *ngIf= "loader"  >
   <input matInput placeholder="EmailAddress"  formControlName="emailAddress">
   <mat-error  *ngIf=" formGroup.get('emailAddress')?.invalid">{{getErrorMessage(formGroup.get('emailAddress'))}} </mat-error>
 </mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Textarea</mat-label>
+  <textarea matInput placeholder="Describtion"  formControlName="describtion"></textarea>
+</mat-form-field>
 <button mat-flat-button style="background-color: black;color: #fff;"  (click)="onUpdateClicked()">Update Startup</button>
 </form>
 
