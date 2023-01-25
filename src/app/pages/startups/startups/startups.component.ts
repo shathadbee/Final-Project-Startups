@@ -31,7 +31,7 @@ export class StartupsComponent  implements OnInit , OnDestroy {
 constructor(  private _sectorsService: SectorsService,
    private _startupsService:StartupsService,
     private router:Router
-    ,private _authService:AuthService ){
+    ,private _authService:AuthService ,){
 
 
 
@@ -142,6 +142,8 @@ if (event.value ==="all"){
 
 
   }
+
+
 
 
 

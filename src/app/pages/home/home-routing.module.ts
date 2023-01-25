@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsStartupComponent } from './details-startup/details-startup.component';
 import { HomeComponent } from './home/home.component';
 import { ListSectorsComponent } from './list-sectors/list-sectors.component';
+import { MainComponent } from './main/main.component';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
 import { SliderComponent } from './slider/slider.component';
 import { StartupComponent } from './startup/startup.component';
@@ -28,6 +29,10 @@ pathMatch:'full'
 {path:'slider',
   component : SliderComponent,
 },
+{path:'main',
+  component : MainComponent,
+},
+
 ] },
 
 {path:'details-startup',

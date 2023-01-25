@@ -28,6 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { SliderComponent } from './slider/slider.component';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MainComponent } from './main/main.component';
 const MatImports = [
 
   MatTableModule,
@@ -44,7 +45,7 @@ const MatImports = [
 
 ];
 @NgModule({
-  declarations: [HomeComponent, StartupComponent, PreviewStartupComponent, ListSectorsComponent, FooterComponent, DetailsStartupComponent, SliderComponent],
+  declarations: [HomeComponent, StartupComponent, PreviewStartupComponent, ListSectorsComponent, FooterComponent, DetailsStartupComponent, SliderComponent, MainComponent],
   imports: [CommonModule, HomeRoutingModule, HeaderModule,  RouterModule,
     FormsModule,
     MatPaginatorModule,

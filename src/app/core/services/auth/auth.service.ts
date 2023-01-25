@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import {UserCredential} from '@firebase/auth-types';
 import { AngularFireDatabase , AngularFireList } from '@angular/fire/compat/database';
+import {  GoogleAuthProvider, User ,user} from '@angular/fire/auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,12 +16,15 @@ dbRef:AngularFireList<any>;
 userInfo= new BehaviorSubject<any>({});
 userId:string='';
 isLoggedIn$ = new BehaviorSubject<boolean>( !!localStorage.getItem('userId'));
-
+user$ : Observable<any>;
   constructor(private router:Router ,
   private angularFireAuth :AngularFireAuth,
- private angularFireDatabase:AngularFireDatabase ) {
+ private angularFireDatabase:AngularFireDatabase ,
+) {
    this.dbRef=angularFireDatabase.list(this.dbUserPath);
+   this.user$=angularFireAuth.authState;
    this.authStateSubscribe()
+
 
   }
 
@@ -101,3 +106,8 @@ logout(){
 
 
 }
+
+
+
+
+

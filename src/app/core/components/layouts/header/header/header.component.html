@@ -1,114 +1,79 @@
-<section class="header " >
-  <nav class="" [ngClass]="fixedNavBar? 'header_fixed':'nav'" >
+<section class="header">
+  <nav class="" [ngClass]="fixedNavBar ? 'header_fixed' : 'nav'">
     <div class="left">
-      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/image%20(1).png?alt=media&token=19acc0f7-7c54-4131-9530-e361be4b956b" alt="">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/image%20(1).png?alt=media&token=19acc0f7-7c54-4131-9530-e361be4b956b"
+        alt=""
+      />
     </div>
     <div class="right">
-
-      <div class="nav-links" [class.menuClass] ="menuVariable"  [class.menu_icon_Class] ="menu_icon_variable"  >
-
-        <button  id= "icon" class="btn-close btn-close" style="color:rgb(7, 4, 24) ; border:none!important;    margin-bottom: 0;    margin-top: 30px; font-size: 18px;"
-
-         (click)="open_closeMenu()" ></button>
+      <div
+        class="nav-links"
+        [class.menuClass]="menuVariable"
+        [class.menu_icon_Class]="menu_icon_variable"
+      >
+        <button
+          id="icon"
+          class="btn-close btn-close"
+          style="
+            color: rgb(7, 4, 24);
+            border: none !important;
+            margin-bottom: 0;
+            margin-top: 30px;
+            font-size: 18px;
+          "
+          (click)="open_closeMenu()"
+        ></button>
 
         <ul class="">
-          <li><a href="#home"> HOME </a> </li>
-          <li><a href="#services">SERVICES  </a> </li>
-          <li><a href="#about-section">ABOUT US </a> </li>
-
-          <li class="auth-btns-above700"><a [routerLink]="['/auth/signup']" >SIGN UP</a></li>
-          <li  class="auth-btns-above700"><a [routerLink]="['/auth/login']" >LOG IN</a></li>
+          <li><a [routerLink]="'.'"> HOME </a></li>
+          <li><a [routerLink]="'.'" fragment="about-section">ABOUT US </a></li>
+          <li><a [routerLink]="'.'" fragment="startups">STARTUPS </a></li>
+          <li><a [routerLink]="'.'" fragment="sectors">SECTORS </a></li>
 
 
+          <li class="auth-btns-above700">
+            <a [routerLink]="['/auth/signup']">SIGN UP</a>
+          </li>
+          <li class="auth-btns-above700">
+            <a [routerLink]="['/auth/login']">LOG IN</a>
+          </li>
 
-          <li class="auth-btns"> <a    class="btn-1"  [routerLink]="['/auth/signup']" type="submit">SIGN UP</a></li>
-          <li class="auth-btns"> <button class="btn" mat-raised-button  [routerLink]="['/auth/login']" type="submit">LOG IN</button></li>
+          <li class="auth-btns">
+            <a class="btn-1" [routerLink]="['/auth/signup']" type="submit"
+              >SIGN UP</a
+            >
+          </li>
+          <li class="auth-btns">
+            <button
+              class="btn"
+              mat-raised-button
+              [routerLink]="['/auth/login']"
+              type="submit"
+            >
+              LOG IN
+            </button>
+          </li>
         </ul>
-
       </div>
 
-  <i  id= "icon"   class="bi bi-list"   style="    color: rgb(124, 27, 72);"  (click)="open_closeMenu()"></i>
+      <i
+        id="icon"
+        class="bi bi-list"
+        style="color: rgb(124, 27, 72)"
+        (click)="open_closeMenu()"
+      ></i>
     </div>
-
-
   </nav>
 
   <div class="text-box">
-  <h1> Welcome To Startups Jo</h1>
+    <h1>Welcome To Startups Jo</h1>
 
-  <p>Discover the startups that will shape our future.
-     Contact them. Invest in them. Use their services.
-   Read their news Or give them your support
-      Or add your startup.</p>
-  <a  [routerLink]="['/auth/signup']" > Get Started </a>
-  </div>
-
-
-  </section>
-  <section id="services">
-
-    <div class="container">
-
-      <div class="card">
-        <i style="background-color: rgb(24, 66, 38);"  class="bi bi-fingerprint"></i>
-        <div class="card-container ">
-          <h3>Security</h3>
-          <div>Gateway to the Jordanian Entrepreneurship Ecosystem is Jordans.</div>
-
-
-        </div>
-      </div>
-      <div class="card" >
-        <i  style="background-color: rgb(197, 54, 54);" class="bi bi-currency-dollar"></i>
-        <div class="card-container ">
-          <h3> Free</h3>
-          <div>Rrgistring Here is Free. </div>
-        </div>
-      </div>
-      <div class="card" >
-        <i style="background-color: rgb(243, 232, 71);" class="bi bi-share" ></i>
-        <div  class="card-container ">
-
-          <h3>Share</h3>
-<div class="text-service">Sharing & Communication With Companies.</div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-
-<section id="about-section">
-
-  <div class="about-left">
-      <img src="https://firebasestorage.googleapis.com/v0/b/angular-c4826.appspot.com/o/jordan-map.webp?alt=media&token=805936a3-a3a1-4d4d-8334-b13fb5a009be" width="300px" style="margin-bottom:20px"/>
-  </div>
-
-
-  <div class="about-right">
-
-      <h1>About Us</h1>
-      <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Debitis fugiat a dolorem at similique maxime dolorum dolore
-          enim dicta voluptatibus, illum recusandae, vel optio tempore
-          ipsum incidunt eum. Aspernatur, repellendus.
-      </p>
-
+    <p>
+      Discover the startups that will shape our future. Contact them. Invest in
+      them. Use their services. Read their news Or give them your support Or add
+      your startup.
+    </p>
+    <a [routerLink]="['/auth/signup']"> Get Started </a>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-  <!--<button  mat-button color="primary" [routerLink]="['/auth/signup']" type="submit">SIGN UP</button>
-
-
-                   <button class="btn" mat-raised-button color="primary" [routerLink]="['/auth/login']" type="submit">LOG IN</button>-->

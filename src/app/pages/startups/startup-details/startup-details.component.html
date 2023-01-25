@@ -14,7 +14,7 @@ role="status" *ngIf= "loader"  >
     <div class="head">
  <span>{{startup.name}} </span>
 <img  class="logo" [src]="startup.logo" alt="loading... "></div>
-
+<P>Describtion:</P> <span>{{startup.describtion}}</span>
 <p>Email Address:</p><span>{{startup.emailAddress}}</span>
 <p> City: </p><span>{{startup.city}} .</span>
 <p>  Sectors: </p><span *ngFor="let item of startup.sectors"  >{{item.name}} .</span>

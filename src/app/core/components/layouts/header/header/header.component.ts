@@ -1,5 +1,6 @@
 import { Component, OnInit,HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/core/services/loader/loader.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class HeaderComponent  implements OnInit {
   fixedNavBar: boolean = false;
 
   menuVariable:boolean=false;
-  constructor(private router:Router){
+  constructor(private router:Router,  public loader:LoaderService){
   }
 
   ngOnInit(){

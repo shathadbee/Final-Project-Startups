@@ -62,6 +62,7 @@ p{
 span{
 color: rgb(150, 147, 147);
   gap: 10px;
+
 }
 @media only screen and (max-width: 600px) {
   .title {

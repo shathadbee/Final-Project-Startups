@@ -20,7 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RequestStartupComponent } from './request-startup/request-startup.component';
 
 const MatImports=[MatTableModule ,MatButtonModule,MatInputModule ,MatListModule,MatIconModule ,MatMenuModule,MatPaginatorModule,MatFormFieldModule
-   ,RouterModule, MatSelectModule,FormsModule ,ReactiveFormsModule ,MatProgressSpinnerModule]
+   ,RouterModule, MatSelectModule,FormsModule ,ReactiveFormsModule ,MatProgressSpinnerModule ]
 
 @NgModule({
   declarations: [
