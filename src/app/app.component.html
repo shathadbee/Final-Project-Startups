@@ -4,6 +4,6 @@
 <div class="loader"
 role="status" *ngIf="this.loader.getload()">
   <span class="visually-hidden">Loading...</span> </div>
-<ng-template #notAuth    >
- <router-outlet></router-outlet>
+<ng-template #notAuth   >
+ <div  *ngIf="!(this.loader.getload())"><router-outlet></router-outlet></div>
 </ng-template>

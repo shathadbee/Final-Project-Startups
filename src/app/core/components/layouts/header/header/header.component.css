@@ -5,15 +5,17 @@
   background-size: cover;
   position: relative;
   background-attachment: fixed;
+
   }
 
-  .header::after{
+  .header::after {
     position: absolute;
         content: '';
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
+
         /*background: rgb(3, 3, 3);*/
         overflow: hidden;
         background: linear-gradient(180deg, rgba(58, 9, 54, 0) 0%, rgba(0, 0, 0, 0.7) 88%, rgb(69 17 46)  100%);}
@@ -126,8 +128,8 @@ flex-wrap: wrap;
   .text-box p{
     margin:10px 0 60px ;
     font-size: 18px;
-    color: rgb(255, 233, 243);
 
+    color: rgb(245, 181, 209);
     padding-left: 0;
 align-content: center;
 gap: 20px;
@@ -172,7 +174,7 @@ max-width:21rem
     #about-section{  padding: 0 !important;}
     nav{
       height: fit;
-      padding: 0 20px;
+      padding: 0 2%;
     }
     .auth-btns-above700{
       display: block !important;
