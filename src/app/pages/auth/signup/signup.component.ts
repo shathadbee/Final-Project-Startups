@@ -67,6 +67,9 @@ control?.markAsTouched({onlySelf:true});
     return  'Password not valid ' ;
   }
 
+  onClicked(){
+    this.router.navigate(['/home']);
+  }
 
 
 

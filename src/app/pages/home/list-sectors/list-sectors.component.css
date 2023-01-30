@@ -37,7 +37,12 @@ margin:10px;
 .contentBx{
 justify-content: center;
 padding: 18px  18px 0 6px  ;
+
 }
 section{
 
     background:rgb(230, 196, 212);}
+    h3{
+      font-size: 16px;
+      font-weight: 1000;
+    }

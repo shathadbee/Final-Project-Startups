@@ -46,34 +46,26 @@ getAllData(){
 ngOnInit(): void {
       this.getAllData();
 
-      //this.getuserInf();
-  /*this.activatedRoute.queryParams.subscribe((result)=>{
-    if(result['key']){
-      this.key=result['key'];
-      this.getById();
-    }
-  })*/
+
 }
-/*getuserInf(){
-  this._authService.userInfo.subscribe((user)=>{
-    this.userData = user;
-    console.log(this.userData );
 
-      this.getAllData();
-    })
 
-}*/
-
-getById(){
+/*getById(){
   this._startupsService.getByIdRequest(this.key).pipe(takeUntil(this.subject))
   .subscribe((startup:any)=>{
     if(startup){
       this.toApproveStartup=startup;
-      //this.loading=false;
+
     }
 
     })
-  }
+  }*/
+
+
+
+
+
+
   onApprovalClicked(key:any){
     this._startupsService.getByIdRequest(key).subscribe((startup)=>{
       this.toApproveStartup=startup;
